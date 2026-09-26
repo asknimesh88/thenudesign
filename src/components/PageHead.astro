@@ -1,0 +1,42 @@
+---
+// Page header for inner pages: eyebrow, H1 and intro on the left, one or two
+// photos on the right (stacked below the text on small screens).
+// Anything in the default slot (e.g. jump links) goes under the intro.
+import type { Locale } from '../site.config';
+import Photo from './Photo.astro';
+import { photo } from '../data/photos';
+
+interface Props {
+  locale: Locale;
+  eyebrow: string;
+  title: string;
+  intro?: string;
+  /** One or two photo keys from src/data/photos.ts. The first loads with high priority. */
+  photos: string[];
+}
+
+const { locale, eyebrow, title, intro, photos } = Astro.props;
+---
+
+<section class="page-head container">
+  <div class="page-head-text">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    {intro && <p class="lead">{intro}</p>}
+    <slot />
+  </div>
+  <div class:list={['page-head-media', { single: photos.length === 1 }]}>
+    {
+      photos.map((name, i) => (
+        <Photo
+          name={name}
+          locale={locale}
+          width={photos.length === 1 ? 600 : 340}
+          sizes={photos.length === 1 ? '(min-width: 900px) 42vw, 92vw' : '(min-width: 900px) 22vw, 45vw'}
+          priority={i === 0}
+          class={photo(name).collection === 'portrait' ? 'pos-top' : undefined}
+        />
+      ))
+    }
+  </div>
+</section>

@@ -1,17 +1,16 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import { ROUTES } from '../i18n/routes';
 import { UI } from '../i18n/ui';
 ---
 
 <Base locale="en" title={`${UI.en.notFoundTitle} | ${UI.fi.notFoundTitle}`} noindex>
-  <section class="page-head container">
-    <h1>{UI.en.notFoundTitle}</h1>
-    <p class="lead">{UI.en.notFoundText}</p>
+  <PageHead locale="en" eyebrow="404" title={UI.en.notFoundTitle} intro={UI.en.notFoundText} photos={['thenu-design-mustard-floral-dress-in-motion']}>
     <p><a class="button" href={ROUTES.home.en}>{UI.en.backHome}</a></p>
     <hr />
     <h2 lang="fi">{UI.fi.notFoundTitle}</h2>
     <p lang="fi">{UI.fi.notFoundText}</p>
-    <p lang="fi"><a href={ROUTES.home.fi}>{UI.fi.backHome}</a></p>
-  </section>
+    <p lang="fi"><a class="link-arrow" href={ROUTES.home.fi}>{UI.fi.backHome}</a></p>
+  </PageHead>
 </Base>

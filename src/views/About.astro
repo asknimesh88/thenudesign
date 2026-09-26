@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import Photo from '../components/Photo.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { ROUTES } from '../i18n/routes';
@@ -17,16 +18,12 @@ const c = CONTENT[locale];
 ---
 
 <Base locale={locale} route="about" image="thenu-fashion-designer-seated-portrait">
-  <section class="page-head container">
-    <p class="eyebrow">{page.eyebrow}</p>
-    <h1>{page.h1}</h1>
-    <p class="lead">{page.intro}</p>
-  </section>
+  <PageHead locale={locale} eyebrow={page.eyebrow} title={page.h1} intro={page.intro} photos={['thenu-fashion-designer-tampere-portrait', 'thenu-design-pink-bronze-draped-gown-tulle-collar']} />
 
   <section class="section section-flush">
     <div class="container split">
       <div class="split-media">
-        <Photo name="thenu-fashion-designer-seated-portrait" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" priority />
+        <Photo name="thenu-fashion-designer-seated-portrait" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" />
       </div>
       <div class="split-text">
         {c.about.story.map((p) => <p>{p}</p>)}

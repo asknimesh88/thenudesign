@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import Gallery from '../components/Gallery.astro';
 import { ROUTES } from '../i18n/routes';
 import { PAGES } from '../i18n/pages';
@@ -48,11 +49,7 @@ const schema = await Promise.all(
 ---
 
 <Base locale={locale} route="portfolio" image="thenu-design-evening-wear-collection-group" schema={schema}>
-  <section class="page-head container">
-    <p class="eyebrow">{page.eyebrow}</p>
-    <h1>{page.h1}</h1>
-    <p class="lead">{page.intro}</p>
-  </section>
+  <PageHead locale={locale} eyebrow={page.eyebrow} title={page.h1} intro={page.intro} photos={['thenu-design-evening-wear-collection-group', 'thenu-design-floral-dress-blue-tulle-skirt-lupins']} />
 
   {
     order.map((id, i) => (

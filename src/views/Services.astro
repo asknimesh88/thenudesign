@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import Photo from '../components/Photo.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { ROUTES } from '../i18n/routes';
@@ -30,14 +31,17 @@ const schema = c.services.map((s) => ({
 ---
 
 <Base locale={locale} route="services" image="thenu-design-teal-and-red-organza-gowns-duo" schema={schema}>
-  <section class="page-head container">
-    <p class="eyebrow">{page.eyebrow}</p>
-    <h1>{page.h1}</h1>
-    <p class="lead">{page.intro}</p>
+  <PageHead
+    locale={locale}
+    eyebrow={page.eyebrow}
+    title={page.h1}
+    intro={page.intro}
+    photos={['thenu-design-teal-and-red-organza-gowns-duo', 'thenu-design-magenta-floral-top-and-skirt']}
+  >
     <nav class="chips" aria-label={page.eyebrow}>
       {c.services.map((s) => <a href={`#${s.id}`}>{s.title}</a>)}
     </nav>
-  </section>
+  </PageHead>
 
   {
     c.services.map((s, i) => (
