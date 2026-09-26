@@ -1,9 +1,11 @@
 ---
-// TODO(backup): real home content from WordPress goes here.
-import type { Locale } from '../site.config';
+import { SITE, type Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
-import PageIntro from '../components/PageIntro.astro';
+import Photo from '../components/Photo.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { ROUTES } from '../i18n/routes';
+import { PAGES } from '../i18n/pages';
+import { CONTENT } from '../i18n/content';
 import { UI } from '../i18n/ui';
 
 interface Props {
@@ -11,10 +13,146 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+const page = PAGES.home[locale];
+const c = CONTENT[locale];
+const ui = UI[locale];
+
+const strip = [
+  'thenu-design-teal-halter-gown-front-slit',
+  'thenu-design-cobalt-blue-strapless-gown-floral-applique',
+  'thenu-design-red-organza-gown-back-view',
+  'thenu-design-pink-bronze-draped-gown-tulle-collar',
+  'thenu-design-teal-gown-red-shoulder-drape',
+  'thenu-design-mustard-floral-dress-in-motion',
+];
 ---
 
 <Base locale={locale} route="home">
-  <PageIntro locale={locale} route="home">
-    <a class="button" href={ROUTES.contact[locale]}>{UI[locale].getInTouch}</a>
-  </PageIntro>
+  <section class="hero container">
+    <div class="hero-text">
+      <p class="eyebrow">{page.eyebrow}</p>
+      <h1>{page.h1}</h1>
+      <p class="lead">{page.intro}</p>
+      <div class="actions">
+        <a class="button" href={ROUTES.contact[locale]}>{ui.getInTouch}</a>
+        <a class="link-arrow" href={ROUTES.portfolio[locale]}>{ui.seeCollections}</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <Photo
+        name="thenu-design-red-organza-gown-puff-sleeves-portrait"
+        locale={locale}
+        width={760}
+        sizes="(min-width: 900px) 42vw, 92vw"
+        priority
+      />
+      <Photo
+        class="hero-inset"
+        name="thenu-design-floral-dress-lupin-bouquet"
+        locale={locale}
+        width={320}
+        sizes="(min-width: 900px) 16vw, 36vw"
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div class="split-media">
+        <Photo name="thenu-design-floral-ruffle-crop-top-set-portrait" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" />
+      </div>
+      <div class="split-text">
+        <h2>{c.welcome.heading}</h2>
+        {c.welcome.body.map((p) => <p>{p}</p>)}
+        <p class="signature">{c.welcome.signature}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container">
+      <header class="section-head">
+        <h2>{c.servicesHeading}</h2>
+        <p class="lead">{c.servicesLead}</p>
+      </header>
+      <ol class="cards" role="list">
+        {
+          c.services.map((s, i) => (
+            <li class="card">
+              <a href={`${ROUTES.services[locale]}#${s.id}`}>
+                <Photo name={s.photo} locale={locale} width={480} sizes="(min-width: 1100px) 260px, (min-width: 700px) 45vw, 92vw" />
+                <span class="card-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{s.title}</h3>
+                <p>{s.short}</p>
+                <span class="link-arrow">{ui.learnMore}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container section-head section-head-row">
+      <div>
+        <p class="eyebrow">{c.collection.eyebrow}</p>
+        <h2>{c.collection.heading}</h2>
+        <p class="lead">{c.collection.text}</p>
+      </div>
+      <a class="button button-light" href={ROUTES.portfolio[locale]}>{c.collection.cta}</a>
+    </div>
+    <ul class="strip" role="list">
+      {
+        strip.map((name) => (
+          <li>
+            <Photo name={name} locale={locale} width={420} sizes="(min-width: 900px) 22vw, 60vw" />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="center">{c.valuesHeading}</h2>
+      <ol class="values" role="list">
+        {
+          c.values.map((v) => (
+            <li>
+              <h3>{v.title}</h3>
+              <p>{v.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="banner">
+    <Photo name="thenu-design-floral-dress-lupin-field-tampere" locale={locale} width={1920} sizes="100vw" class="banner-img" />
+    <div class="banner-card">
+      <h2>{c.mission.heading}</h2>
+      <p>{c.mission.text}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split split-reverse">
+      <div class="split-media">
+        <Photo name="thenu-design-lilac-floral-ruffle-mini-dress" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" />
+      </div>
+      <div class="split-text">
+        <h2>{c.local.heading}</h2>
+        <p>{c.local.text}</p>
+        <p>
+          <a class="link-arrow" href={SITE.social.instagram} target="_blank" rel="noopener">
+            {ui.followInstagram} {SITE.instagramHandle}
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
 </Base>

@@ -1,20 +1,80 @@
 ---
-// TODO(backup): real services content from WordPress goes here.
 import type { Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
-import PageIntro from '../components/PageIntro.astro';
+import Photo from '../components/Photo.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { ROUTES } from '../i18n/routes';
-import { UI } from '../i18n/ui';
+import { PAGES } from '../i18n/pages';
+import { CONTENT } from '../i18n/content';
+import { abs } from '../lib/schema';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
+const page = PAGES.services[locale];
+const c = CONTENT[locale];
+const url = abs(ROUTES.services[locale]);
+
+const schema = c.services.map((s) => ({
+  '@type': 'Service',
+  '@id': `${url}#${s.id}`,
+  name: s.title,
+  description: `${s.short} ${s.body.join(' ')}`,
+  serviceType: s.title,
+  provider: { '@id': abs('/#business') },
+  areaServed: { '@type': 'City', name: 'Tampere' },
+  url: `${url}#${s.id}`,
+}));
 ---
 
-<Base locale={locale} route="services">
-  <PageIntro locale={locale} route="services">
-    <a class="button" href={ROUTES.contact[locale]}>{UI[locale].getInTouch}</a>
-  </PageIntro>
+<Base locale={locale} route="services" image="thenu-design-teal-and-red-organza-gowns-duo" schema={schema}>
+  <section class="page-head container">
+    <p class="eyebrow">{page.eyebrow}</p>
+    <h1>{page.h1}</h1>
+    <p class="lead">{page.intro}</p>
+    <nav class="chips" aria-label={page.eyebrow}>
+      {c.services.map((s) => <a href={`#${s.id}`}>{s.title}</a>)}
+    </nav>
+  </section>
+
+  {
+    c.services.map((s, i) => (
+      <section class="section service" id={s.id}>
+        <div class:list={['container split', { 'split-reverse': i % 2 === 1 }]}>
+          <div class="split-media">
+            <Photo name={s.photo} locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" />
+          </div>
+          <div class="split-text">
+            <span class="card-num">{String(i + 1).padStart(2, '0')}</span>
+            <h2>{s.title}</h2>
+            <p class="lead">{s.short}</p>
+            {s.body.map((p) => <p>{p}</p>)}
+            <ul class="ticks">
+              {s.points.map((p) => <li>{p}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="section section-tint">
+    <div class="container">
+      <h2 class="center">{c.processHeading}</h2>
+      <ol class="values steps" role="list">
+        {
+          c.process.map((step) => (
+            <li>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
 </Base>

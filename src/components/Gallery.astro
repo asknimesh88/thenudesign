@@ -1,0 +1,78 @@
+---
+// Masonry photo grid. Clicking a photo opens it large in a lightbox (<dialog>);
+// without JavaScript the link simply opens the large image.
+import type { Locale } from '../site.config';
+import { large as largeVariant, type Photo as PhotoData } from '../data/photos';
+import { UI } from '../i18n/ui';
+import Photo from './Photo.astro';
+
+interface Props {
+  photos: PhotoData[];
+  locale: Locale;
+}
+
+const { photos, locale } = Astro.props;
+const ui = UI[locale];
+const items = await Promise.all(
+  photos.map(async (p) => ({
+    photo: p,
+    large: await largeVariant(p),
+  })),
+);
+---
+
+<ul class="gallery" role="list">
+  {
+    items.map(({ photo, large }) => (
+      <li>
+        <a href={large.src} class="gallery-item" data-lightbox data-alt={photo.alt[locale]} aria-label={`${ui.enlarge}: ${photo.alt[locale]}`}>
+          <Photo name={photo.key} locale={locale} width={640} sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" />
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<dialog class="lightbox" aria-label={ui.enlarge}>
+  <img alt="" />
+  <p class="lightbox-caption"></p>
+  <button type="button" class="lightbox-close" aria-label={ui.close}>×</button>
+  <button type="button" class="lightbox-prev" aria-label={ui.previous}>‹</button>
+  <button type="button" class="lightbox-next" aria-label={ui.next}>›</button>
+</dialog>
+
+<script>
+  document.querySelectorAll<HTMLDialogElement>('dialog.lightbox').forEach((dialog) => {
+    const links = Array.from(
+      dialog.previousElementSibling?.querySelectorAll<HTMLAnchorElement>('a[data-lightbox]') ?? [],
+    );
+    const img = dialog.querySelector('img')!;
+    const caption = dialog.querySelector('.lightbox-caption')!;
+    let index = 0;
+
+    const show = (i: number) => {
+      index = (i + links.length) % links.length;
+      img.src = links[index].href;
+      img.alt = links[index].dataset.alt ?? '';
+      caption.textContent = links[index].dataset.alt ?? '';
+    };
+
+    links.forEach((link, i) =>
+      link.addEventListener('click', (event) => {
+        event.preventDefault();
+        show(i);
+        dialog.showModal();
+      }),
+    );
+    dialog.querySelector('.lightbox-close')!.addEventListener('click', () => dialog.close());
+    dialog.querySelector('.lightbox-prev')!.addEventListener('click', () => show(index - 1));
+    dialog.querySelector('.lightbox-next')!.addEventListener('click', () => show(index + 1));
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') show(index - 1);
+      if (event.key === 'ArrowRight') show(index + 1);
+    });
+  });
+</script>

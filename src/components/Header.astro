@@ -15,10 +15,15 @@ const ui = UI[locale];
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href={ROUTES.home[locale]} aria-label={`${SITE.name} – ${ui.nav.home}`}>
-      {SITE.name}
+    <a class="wordmark" href={ROUTES.home[locale]} aria-label={`${SITE.brand} – ${ui.nav.home}`}>
+      <span class="wordmark-name">{SITE.name}</span>
+      <span class="wordmark-sub">Tikki ja Tyyli</span>
     </a>
-    <nav aria-label={ui.menu}>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-toggle-bars" aria-hidden="true"></span>
+      <span class="visually-hidden">{ui.menu}</span>
+    </button>
+    <nav id="site-nav" class="site-nav" aria-label={ui.menu}>
       <ul class="nav">
         {
           NAV.filter((key) => key !== 'home').map((key) => (
@@ -30,7 +35,16 @@ const ui = UI[locale];
           ))
         }
       </ul>
+      <LangSwitch locale={locale} route={route} />
     </nav>
-    <LangSwitch locale={locale} route={route} />
   </div>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(open));
+    document.documentElement.classList.toggle('menu-open', open);
+  });
+</script>

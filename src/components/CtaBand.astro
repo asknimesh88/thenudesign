@@ -1,0 +1,21 @@
+---
+import { SITE, type Locale } from '../site.config';
+import { CONTENT } from '../i18n/content';
+
+interface Props {
+  locale: Locale;
+}
+
+const cta = CONTENT[Astro.props.locale].cta;
+---
+
+<section class="cta-band">
+  <div class="container narrow center">
+    <h2>{cta.heading}</h2>
+    <p class="lead">{cta.text}</p>
+    <div class="actions center">
+      <a class="button" href={`mailto:${SITE.email}`}>{cta.email}</a>
+      <a class="button button-ghost" href={SITE.social.instagram} target="_blank" rel="noopener">{cta.instagram}</a>
+    </div>
+  </div>
+</section>

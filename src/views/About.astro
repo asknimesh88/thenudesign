@@ -1,20 +1,89 @@
 ---
-// TODO(backup): real about content from WordPress goes here.
 import type { Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
-import PageIntro from '../components/PageIntro.astro';
+import Photo from '../components/Photo.astro';
+import CtaBand from '../components/CtaBand.astro';
 import { ROUTES } from '../i18n/routes';
-import { UI } from '../i18n/ui';
+import { PAGES } from '../i18n/pages';
+import { CONTENT } from '../i18n/content';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
+const page = PAGES.about[locale];
+const c = CONTENT[locale];
 ---
 
-<Base locale={locale} route="about">
-  <PageIntro locale={locale} route="about">
-    <a class="button" href={ROUTES.contact[locale]}>{UI[locale].getInTouch}</a>
-  </PageIntro>
+<Base locale={locale} route="about" image="thenu-design-evening-wear-collection-group">
+  <section class="page-head container">
+    <p class="eyebrow">{page.eyebrow}</p>
+    <h1>{page.h1}</h1>
+    <p class="lead">{page.intro}</p>
+  </section>
+
+  <section class="section section-flush">
+    <div class="container split">
+      <div class="split-media">
+        <Photo name="thenu-design-pink-bronze-draped-gown-tulle-collar" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" priority />
+      </div>
+      <div class="split-text">
+        {c.about.story.map((p) => <p>{p}</p>)}
+        <p class="signature">Thenu</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <Photo name="thenu-design-pink-floral-dress-lupin-field" locale={locale} width={1920} sizes="100vw" class="banner-img" />
+    <div class="banner-card">
+      <h2>{c.about.journeyHeading}</h2>
+      <p>{c.about.journey}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div>
+        <h2>{c.mission.heading}</h2>
+        <p class="lead">{c.mission.text}</p>
+      </div>
+      <div>
+        <h2>{c.vision.heading}</h2>
+        <p class="lead">{c.vision.text}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container">
+      <h2 class="center">{c.valuesHeading}</h2>
+      <ol class="values" role="list">
+        {
+          c.values.map((v) => (
+            <li>
+              <h3>{v.title}</h3>
+              <p>{v.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split split-reverse">
+      <div class="split-media">
+        <Photo name="thenu-design-cobalt-blue-gown-back-bow" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" />
+      </div>
+      <div class="split-text">
+        <h2>{c.about.loveHeading}</h2>
+        <p>{c.about.love}</p>
+        <p><a class="button" href={ROUTES.portfolio[locale]}>{c.about.portfolioCta}</a></p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} />
 </Base>

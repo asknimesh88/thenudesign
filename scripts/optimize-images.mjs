@@ -4,6 +4,7 @@
 //   npm run images                 # process images/incoming → src/assets/photos
 //   npm run images -- --dry-run    # just report what would happen
 //   npm run images -- --force      # redo files that were already processed
+//   npm run images -- --max-edge=2880  # raise the size cap (e.g. for already-optimized sets)
 //
 // For every image:
 //   • Already web-ready (≤ MAX_EDGE px and sensibly compressed)?  → kept byte-for-byte.
@@ -24,7 +25,6 @@ const ROOT = path.resolve(import.meta.dirname, '..');
 const INPUT = path.join(ROOT, 'images/incoming');
 const OUTPUT = path.join(ROOT, 'src/assets/photos');
 
-const MAX_EDGE = 2560; // px, long side. Enough for full-screen on 4K/retina.
 const JPEG_QUALITY = 85; // visually lossless for photos with mozjpeg
 // Bytes per pixel above which a JPEG is considered under-compressed. A well-compressed
 // photo at q80–85 is typically 0.15–0.4 B/px; straight-from-camera files are 0.6–1.5.
@@ -32,6 +32,9 @@ const JPEG_HEAVY_BPP = 0.55;
 const MIN_SAVING = 0.1;
 
 const args = new Set(process.argv.slice(2));
+const maxEdgeArg = process.argv.find((a) => a.startsWith('--max-edge='));
+// px, long side. 2560 is enough for full-screen on 4K/retina.
+const MAX_EDGE = maxEdgeArg ? Number(maxEdgeArg.split('=')[1]) : 2560;
 const DRY = args.has('--dry-run');
 const FORCE = args.has('--force');
 

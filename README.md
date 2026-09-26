@@ -49,29 +49,33 @@ address, service area), `Person`, `WebSite`, the page type (`AboutPage`, `Contac
 
 1. Put new photos (any size, straight from the camera is fine) in `images/incoming/`.
    Sub-folders are fine, e.g. `images/incoming/2026-photoshoot/`. This folder is not committed.
+   Give files descriptive names (`thenu-design-red-organza-gown.jpg`), which helps image search.
 2. Run `npm run images` (or `npm run images -- --dry-run` to only see the report).
-3. The web-ready masters land in `src/assets/photos/` with SEO-friendly file names.
-   Commit those.
+3. The web-ready masters land in `src/assets/photos/`. Commit those.
+4. Add each new photo to `src/data/photos.ts` with alt text in English and Finnish and the
+   collection it belongs to. The build stops with a clear error if a photo has no alt text.
 
 The script only optimizes images that need it:
 
 - **Already web-ready** (long side at most 2560 px and sensibly compressed): kept
   byte-for-byte. For JPEGs, the camera data (including GPS location) is removed without
-  touching the pixels.
+  touching the pixels. Use `--max-edge=2880` to keep a slightly larger, already-optimized set as is.
 - **Oversized, heavy, EXIF-rotated, or PNG/TIFF photos**: re-encoded once at high quality
   (mozjpeg q85, colour profile kept). If that saves less than 10 %, the original is kept.
 
-At build time, `<Photo>` (`src/components/Photo.astro`) turns each master into AVIF and WebP
-at several widths, lazy-loaded. `alt` is required and should describe the photo in the page's
-language.
+At build time, `<Photo>` (`src/components/Photo.astro`) encodes each master as AVIF and WebP
+at a fixed set of widths (480–2400 px) plus one JPEG fallback, lazy-loaded. Sizes are shared
+between pages, so each is encoded once, and Astro caches them between builds.
 
 ```astro
----
-import Photo from '../components/Photo.astro';
-import hero from '../assets/photos/2026-photoshoot/studio-tampere.jpg';
----
-<Photo src={hero} alt="Thenu at work in the Tampere studio" sizes="100vw" priority />
+<Photo name="thenu-design-red-organza-gown-puff-sleeves-portrait" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" />
 ```
+
+## Content
+
+- `src/i18n/pages.ts`: SEO title, meta description, eyebrow, H1 and intro per page and language.
+- `src/i18n/content.ts`: all other page copy (services, FAQ, about story, …) in both languages.
+- `src/data/photos.ts`: photo alt texts (both languages) and collections.
 
 ## Deploying to Cloudflare
 

@@ -1,10 +1,16 @@
 ---
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource-variable/jost';
 import '../styles/global.css';
 import { SITE, type Locale } from '../site.config';
 import { ROUTES, type RouteKey } from '../i18n/routes';
 import { PAGES } from '../i18n/pages';
 import { UI } from '../i18n/ui';
 import { pageSchema } from '../lib/schema';
+import { ogImage } from '../lib/og';
+import { photo } from '../data/photos';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -14,18 +20,20 @@ interface Props {
   route?: RouteKey;
   title?: string;
   description?: string;
-  /** Social share image, path under public/ or an absolute URL. 1200×630 recommended. */
+  /** Photo key (src/data/photos.ts) used for the 1200×630 social share image. */
   image?: string;
   imageAlt?: string;
   noindex?: boolean;
   schema?: Record<string, unknown>[];
 }
 
-const { locale, route, image = '/og-default.jpg', noindex = false, schema } = Astro.props;
+const { locale, route, noindex = false, schema } = Astro.props;
+const imageKey = Astro.props.image ?? 'thenu-design-red-organza-gown-puff-sleeves-portrait';
+const image = await ogImage(imageKey);
 const copy = route ? PAGES[route][locale] : undefined;
 const title = Astro.props.title ?? copy?.title ?? SITE.name;
 const description = Astro.props.description ?? copy?.description ?? '';
-const imageAlt = Astro.props.imageAlt ?? `${SITE.name} – ${UI[locale].location}`;
+const imageAlt = Astro.props.imageAlt ?? photo(imageKey).alt[locale];
 const ui = UI[locale];
 
 const abs = (p: string) => new URL(p, SITE.url).href;
@@ -61,6 +69,8 @@ const jsonLd = route ? pageSchema({ route, locale, title, description, image, ex
     {description && <meta property="og:description" content={description} />}
     {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={abs(image)} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={imageAlt} />
     <meta property="og:locale" content={ui.ogLocale} />
     <meta property="og:locale:alternate" content={UI[otherLocale].ogLocale} />
@@ -72,7 +82,7 @@ const jsonLd = route ? pageSchema({ route, locale, title, description, image, ex
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap.xml" />
-    <meta name="theme-color" content="#f6f3ee" />
+    <meta name="theme-color" content="#f7f3ee" />
 
     {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
   </head>

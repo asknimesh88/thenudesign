@@ -9,23 +9,31 @@ interface Props {
 
 const { locale } = Astro.props;
 const ui = UI[locale];
-const a = SITE.address;
 ---
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <address>
-      <strong>{SITE.name}</strong><br />
-      {a.streetAddress && <>{a.streetAddress}<br /></>}
-      {a.postalCode} {a.locality}, {locale === 'fi' ? 'Suomi' : 'Finland'}<br />
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="wordmark" href={ROUTES.home[locale]}>
+        <span class="wordmark-name">{SITE.name}</span>
+        <span class="wordmark-sub">Tikki ja Tyyli</span>
+      </a>
+      <p>{ui.footerTagline}</p>
+    </div>
+    <address class="footer-contact">
       <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-      {SITE.phone && <><br /><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></>}
+      {SITE.phone && <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a>}
+      <span>{ui.location}</span>
     </address>
     <nav aria-label={ui.menu}>
       <ul>
         {NAV.map((key) => <li><a href={ROUTES[key][locale]}>{ui.nav[key]}</a></li>)}
       </ul>
     </nav>
-    <p class="copyright">© {new Date().getFullYear()} {SITE.name}. {ui.rights}</p>
+    <ul class="footer-social">
+      <li><a href={SITE.social.instagram} rel="me noopener" target="_blank">Instagram</a></li>
+      <li><a href={SITE.social.facebook} rel="me noopener" target="_blank">Facebook</a></li>
+    </ul>
+    <p class="copyright">© {new Date().getFullYear()} {SITE.brand}. {ui.rights}</p>
   </div>
 </footer>

@@ -1,33 +1,81 @@
 ---
 import { SITE, type Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
-import PageIntro from '../components/PageIntro.astro';
+import Photo from '../components/Photo.astro';
+import { ROUTES } from '../i18n/routes';
+import { PAGES } from '../i18n/pages';
+import { CONTENT } from '../i18n/content';
+import { abs, faqSchema } from '../lib/schema';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const fi = locale === 'fi';
-const a = SITE.address;
+const page = PAGES.contact[locale];
+const c = CONTENT[locale];
+const schema = [faqSchema(c.faq, abs(ROUTES.contact[locale]))];
 ---
 
-<Base locale={locale} route="contact">
-  <PageIntro locale={locale} route="contact">
-    <dl class="contact-list">
-      <dt>{fi ? 'Sähköposti' : 'Email'}</dt>
-      <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
-      {SITE.phone && (
-        <>
-          <dt>{fi ? 'Puhelin' : 'Phone'}</dt>
-          <dd><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></dd>
-        </>
-      )}
-      <dt>{fi ? 'Sijainti' : 'Location'}</dt>
-      <dd>
-        {a.streetAddress && <>{a.streetAddress}, </>}
-        {a.postalCode} {a.locality}, {a.region}, {fi ? 'Suomi' : 'Finland'}
-      </dd>
-    </dl>
-  </PageIntro>
+<Base locale={locale} route="contact" image="thenu-design-mustard-floral-shirt-dress" schema={schema}>
+  <section class="section section-flush">
+    <div class="container split contact">
+      <div class="split-text">
+        <p class="eyebrow">{page.eyebrow}</p>
+        <h1>{page.h1}</h1>
+        <p class="lead">{page.intro}</p>
+
+        <dl class="contact-list">
+          <div>
+            <dt>{c.contact.email}</dt>
+            <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+          </div>
+          {
+            SITE.phone && (
+              <div>
+                <dt>{c.contact.phone}</dt>
+                <dd><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></dd>
+              </div>
+            )
+          }
+          <div>
+            <dt>Instagram</dt>
+            <dd><a href={SITE.social.instagram} target="_blank" rel="me noopener">{SITE.instagramHandle}</a></dd>
+          </div>
+          <div>
+            <dt>Facebook</dt>
+            <dd><a href={SITE.social.facebook} target="_blank" rel="me noopener">{SITE.brand}</a></dd>
+          </div>
+          <div>
+            <dt>{c.contact.location}</dt>
+            <dd>{c.contact.locationValue}</dd>
+          </div>
+        </dl>
+
+        <div class="note">
+          <h2 class="h4">{c.contact.tipHeading}</h2>
+          <p>{c.contact.tip}</p>
+        </div>
+      </div>
+      <div class="split-media">
+        <Photo name="thenu-design-mustard-floral-shirt-dress" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" priority />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container narrow">
+      <h2 class="center">{c.contact.faqHeading}</h2>
+      <div class="faq">
+        {
+          c.faq.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Base>

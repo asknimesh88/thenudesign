@@ -1,20 +1,77 @@
 ---
-// TODO(backup): real portfolio content from WordPress goes here.
 import type { Locale } from '../site.config';
 import Base from '../layouts/Base.astro';
-import PageIntro from '../components/PageIntro.astro';
+import Gallery from '../components/Gallery.astro';
 import { ROUTES } from '../i18n/routes';
+import { PAGES } from '../i18n/pages';
+import { CONTENT } from '../i18n/content';
 import { UI } from '../i18n/ui';
+import { collection, large, type Collection } from '../data/photos';
+import { abs, gallerySchema } from '../lib/schema';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
+const page = PAGES.portfolio[locale];
+const c = CONTENT[locale];
+const ui = UI[locale];
+const order: Collection[] = ['evening-2026', 'summer-2025'];
+const url = abs(ROUTES.portfolio[locale]);
+
+const schema = await Promise.all(
+  order.map(async (id) => {
+    const images = await Promise.all(
+      collection(id).map(async (p) => {
+        const img = await large(p);
+        return {
+          url: img.src,
+          caption: p.alt[locale],
+          width: Number(img.attributes.width),
+          height: Number(img.attributes.height),
+        };
+      }),
+    );
+    return gallerySchema({
+      id: `${url}#${id}`,
+      name: c.portfolio.collections[id].heading,
+      description: c.portfolio.collections[id].text,
+      images,
+    });
+  }),
+);
 ---
 
-<Base locale={locale} route="portfolio">
-  <PageIntro locale={locale} route="portfolio">
-    <a class="button" href={ROUTES.contact[locale]}>{UI[locale].getInTouch}</a>
-  </PageIntro>
+<Base locale={locale} route="portfolio" image="thenu-design-evening-wear-collection-group" schema={schema}>
+  <section class="page-head container">
+    <p class="eyebrow">{page.eyebrow}</p>
+    <h1>{page.h1}</h1>
+    <p class="lead">{page.intro}</p>
+  </section>
+
+  {
+    order.map((id, i) => (
+      <section class:list={['section', { 'section-dark': i === 0 }]} id={id}>
+        <div class="container">
+          <header class="section-head">
+            <h2>{c.portfolio.collections[id].heading}</h2>
+            <p class="lead">{c.portfolio.collections[id].text}</p>
+          </header>
+          <Gallery photos={collection(id)} locale={locale} />
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="cta-band">
+    <div class="container narrow center">
+      <h2>{c.portfolio.ctaHeading}</h2>
+      <p class="lead">{c.portfolio.ctaText}</p>
+      <div class="actions center">
+        <a class="button" href={ROUTES.contact[locale]}>{ui.getInTouch}</a>
+        <a class="link-arrow" href={ROUTES.services[locale]}>{ui.allServices}</a>
+      </div>
+    </div>
+  </section>
 </Base>
