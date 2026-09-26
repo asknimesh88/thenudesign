@@ -4,14 +4,14 @@ import type { Locale } from '../site.config';
 
 // Every photo on the site, with alt text in both languages.
 // Alt text describes the garment (what a visitor or search engine needs to know),
-// not the model, and never names a person.
+// not the model, and never names a model. Only the portraits of Thenu name her.
 //
 // To add photos: run `npm run images`, then add an entry here with the file name
 // (without .jpg) as the key.
 
 const files = import.meta.glob<{ default: ImageMetadata }>('../assets/photos/**/*.jpg', { eager: true });
 
-export type Collection = 'evening-2026' | 'summer-2025';
+export type Collection = 'evening-2026' | 'summer-2025' | 'portrait';
 
 interface PhotoInfo {
   collection: Collection;
@@ -19,6 +19,22 @@ interface PhotoInfo {
 }
 
 const INFO: Record<string, PhotoInfo> = {
+  // Portraits of Thenu herself (not shown in the portfolio galleries)
+  'thenu-fashion-designer-tampere-portrait': {
+    collection: 'portrait',
+    alt: {
+      en: 'Thenu, fashion designer in Tampere, smiling on a studio stool in a peach blazer and white trousers',
+      fi: 'Tamperelainen muotisuunnittelija Thenu hymyilee studiojakkaralla persikanvärisessä bleiserissä ja valkoisissa housuissa',
+    },
+  },
+  'thenu-fashion-designer-seated-portrait': {
+    collection: 'portrait',
+    alt: {
+      en: 'Portrait of Thenu, the designer behind Tikki ja Tyyli, seated in a peach blazer and lace top',
+      fi: 'Muotokuva Thenusta, Tikki ja Tyylin suunnittelijasta, istumassa persikanvärisessä bleiserissä ja pitsitopissa',
+    },
+  },
+
   // Evening wear collection, studio shoot 2026
   'thenu-design-red-organza-gown-puff-sleeves-portrait': {
     collection: 'evening-2026',
@@ -319,3 +335,6 @@ export function variant(p: Photo, width: number, format: 'avif' | 'webp') {
 export function large(p: Photo) {
   return variant(p, 1600, 'webp');
 }
+
+/** Main portrait of Thenu, also used in her Person structured data. */
+export const PORTRAIT = 'thenu-fashion-designer-tampere-portrait';

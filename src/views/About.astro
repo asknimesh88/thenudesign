@@ -16,7 +16,7 @@ const page = PAGES.about[locale];
 const c = CONTENT[locale];
 ---
 
-<Base locale={locale} route="about" image="thenu-design-evening-wear-collection-group">
+<Base locale={locale} route="about" image="thenu-fashion-designer-seated-portrait">
   <section class="page-head container">
     <p class="eyebrow">{page.eyebrow}</p>
     <h1>{page.h1}</h1>
@@ -26,7 +26,7 @@ const c = CONTENT[locale];
   <section class="section section-flush">
     <div class="container split">
       <div class="split-media">
-        <Photo name="thenu-design-pink-bronze-draped-gown-tulle-collar" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" priority />
+        <Photo name="thenu-fashion-designer-seated-portrait" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" priority />
       </div>
       <div class="split-text">
         {c.about.story.map((p) => <p>{p}</p>)}

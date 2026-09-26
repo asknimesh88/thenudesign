@@ -72,11 +72,12 @@ function business(locale: Locale, image?: string) {
   };
 }
 
-function person() {
+function person(image?: string) {
   return {
     '@type': 'Person',
     '@id': ids.person,
     name: SITE.designer,
+    ...(image && { image: abs(image) }),
     jobTitle: 'Fashion Designer',
     worksFor: { '@id': ids.business },
     homeLocation: { '@type': 'Place', name: 'Tampere, Finland' },
@@ -125,6 +126,7 @@ export function pageSchema(opts: {
   title: string;
   description: string;
   image?: string;
+  personImage?: string;
   extra?: Record<string, unknown>[];
 }) {
   const url = abs(ROUTES[opts.route][opts.locale]);
@@ -132,7 +134,7 @@ export function pageSchema(opts: {
     '@context': 'https://schema.org',
     '@graph': [
       business(opts.locale, opts.image),
-      person(),
+      person(opts.personImage),
       website(),
       {
         '@type': PAGE_TYPE[opts.route] ?? 'WebPage',

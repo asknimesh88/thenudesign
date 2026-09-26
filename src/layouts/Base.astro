@@ -10,7 +10,7 @@ import { PAGES } from '../i18n/pages';
 import { UI } from '../i18n/ui';
 import { pageSchema } from '../lib/schema';
 import { ogImage } from '../lib/og';
-import { photo } from '../data/photos';
+import { photo, large, PORTRAIT } from '../data/photos';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
@@ -42,7 +42,8 @@ const alternates = route
   ? SITE.locales.map((l) => ({ hreflang: UI[l].htmlLang, href: abs(ROUTES[route][l]) }))
   : [];
 const otherLocale = SITE.locales.find((l) => l !== locale)!;
-const jsonLd = route ? pageSchema({ route, locale, title, description, image, extra: schema }) : null;
+const personImage = (await large(photo(PORTRAIT))).src;
+const jsonLd = route ? pageSchema({ route, locale, title, description, image, personImage, extra: schema }) : null;
 ---
 
 <!doctype html>
