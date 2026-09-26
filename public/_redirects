@@ -1,0 +1,26 @@
+# Old WordPress URLs → new bilingual pages (301 keeps their search ranking).
+/home/            /en/            301
+/services/        /en/services/   301
+/services         /en/services/   301
+/portfolio/       /en/portfolio/  301
+/portfolio        /en/portfolio/  301
+/about/           /en/about/      301
+/about            /en/about/      301
+/contact/         /en/contact/    301
+/contact          /en/contact/    301
+/testimonials/    /en/            301
+/testimonials     /en/            301
+/blog/            /en/            301
+/blog             /en/            301
+/post-1/          /en/            301
+/post-2/          /en/            301
+/post-3/          /en/            301
+/category/*       /en/            301
+/author/*         /en/            301
+/feed/            /en/            301
+/sitemap_index.xml  /sitemap.xml  301
+/page-sitemap.xml   /sitemap.xml  301
+/post-sitemap.xml   /sitemap.xml  301
+/wp-sitemap.xml     /sitemap.xml  301
+/wp-admin/*       /en/            301
+/wp-login.php     /en/            301
