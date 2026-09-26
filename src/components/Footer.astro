@@ -1,0 +1,31 @@
+---
+import { SITE, type Locale } from '../site.config';
+import { NAV, ROUTES } from '../i18n/routes';
+import { UI } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = UI[locale];
+const a = SITE.address;
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <address>
+      <strong>{SITE.name}</strong><br />
+      {a.streetAddress && <>{a.streetAddress}<br /></>}
+      {a.postalCode} {a.locality}, {locale === 'fi' ? 'Suomi' : 'Finland'}<br />
+      <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      {SITE.phone && <><br /><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></>}
+    </address>
+    <nav aria-label={ui.menu}>
+      <ul>
+        {NAV.map((key) => <li><a href={ROUTES[key][locale]}>{ui.nav[key]}</a></li>)}
+      </ul>
+    </nav>
+    <p class="copyright">© {new Date().getFullYear()} {SITE.name}. {ui.rights}</p>
+  </div>
+</footer>

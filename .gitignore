@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.dev.vars
+.DS_Store
+# Raw uploads / backups never go into git
+images/incoming/*
+!images/incoming/.gitkeep
+*.wpress
+backup/

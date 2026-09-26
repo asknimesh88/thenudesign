@@ -1,0 +1,87 @@
+---
+import '../styles/global.css';
+import { SITE, type Locale } from '../site.config';
+import { ROUTES, type RouteKey } from '../i18n/routes';
+import { PAGES } from '../i18n/pages';
+import { UI } from '../i18n/ui';
+import { pageSchema } from '../lib/schema';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  locale: Locale;
+  /** Omit for pages outside the route map (e.g. 404). */
+  route?: RouteKey;
+  title?: string;
+  description?: string;
+  /** Social share image, path under public/ or an absolute URL. 1200×630 recommended. */
+  image?: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>[];
+}
+
+const { locale, route, image = '/og-default.jpg', noindex = false, schema } = Astro.props;
+const copy = route ? PAGES[route][locale] : undefined;
+const title = Astro.props.title ?? copy?.title ?? SITE.name;
+const description = Astro.props.description ?? copy?.description ?? '';
+const imageAlt = Astro.props.imageAlt ?? `${SITE.name} – ${UI[locale].location}`;
+const ui = UI[locale];
+
+const abs = (p: string) => new URL(p, SITE.url).href;
+const canonical = route ? abs(ROUTES[route][locale]) : undefined;
+const alternates = route
+  ? SITE.locales.map((l) => ({ hreflang: UI[l].htmlLang, href: abs(ROUTES[route][l]) }))
+  : [];
+const otherLocale = SITE.locales.find((l) => l !== locale)!;
+const jsonLd = route ? pageSchema({ route, locale, title, description, image, extra: schema }) : null;
+---
+
+<!doctype html>
+<html lang={ui.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+    {canonical && <link rel="canonical" href={canonical} />}
+
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+    {route && <link rel="alternate" hreflang="x-default" href={`${SITE.url}/`} />}
+
+    <meta name="geo.region" content="FI-11" />
+    <meta name="geo.placename" content="Tampere" />
+    <meta name="geo.position" content={`${SITE.geo.latitude};${SITE.geo.longitude}`} />
+    <meta name="ICBM" content={`${SITE.geo.latitude}, ${SITE.geo.longitude}`} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={abs(image)} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:locale" content={ui.ogLocale} />
+    <meta property="og:locale:alternate" content={UI[otherLocale].ogLocale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={abs(image)} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <meta name="theme-color" content="#f6f3ee" />
+
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip" href="#main">{ui.skip}</a>
+    <Header locale={locale} route={route} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

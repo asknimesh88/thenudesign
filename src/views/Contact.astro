@@ -1,0 +1,33 @@
+---
+import { SITE, type Locale } from '../site.config';
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const fi = locale === 'fi';
+const a = SITE.address;
+---
+
+<Base locale={locale} route="contact">
+  <PageIntro locale={locale} route="contact">
+    <dl class="contact-list">
+      <dt>{fi ? 'Sähköposti' : 'Email'}</dt>
+      <dd><a href={`mailto:${SITE.email}`}>{SITE.email}</a></dd>
+      {SITE.phone && (
+        <>
+          <dt>{fi ? 'Puhelin' : 'Phone'}</dt>
+          <dd><a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a></dd>
+        </>
+      )}
+      <dt>{fi ? 'Sijainti' : 'Location'}</dt>
+      <dd>
+        {a.streetAddress && <>{a.streetAddress}, </>}
+        {a.postalCode} {a.locality}, {a.region}, {fi ? 'Suomi' : 'Finland'}
+      </dd>
+    </dl>
+  </PageIntro>
+</Base>

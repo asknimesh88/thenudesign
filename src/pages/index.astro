@@ -1,0 +1,26 @@
+---
+// In production the Worker (worker/index.js) answers "/" with a redirect before
+// this page is ever served. This page is the fallback for `astro dev` and any
+// host without the Worker: it applies the same rules in the browser.
+import { SITE } from '../site.config';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{SITE.name} – Tampere, Finland</title>
+    <link rel="alternate" hreflang="en" href={`${SITE.url}/en/`} />
+    <link rel="alternate" hreflang="fi" href={`${SITE.url}/fi/`} />
+    <link rel="alternate" hreflang="x-default" href={`${SITE.url}/`} />
+    <script is:inline>
+      var m = document.cookie.match(/(?:^|;\s*)lang=(en|fi)/);
+      var lang = m ? m[1] : /^fi\b/i.test(navigator.language || '') ? 'fi' : 'en';
+      location.replace('/' + lang + '/');
+    </script>
+  </head>
+  <body>
+    <p><a href="/en/" hreflang="en">English</a> · <a href="/fi/" hreflang="fi" lang="fi">Suomi</a></p>
+  </body>
+</html>

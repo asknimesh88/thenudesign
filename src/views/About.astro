@@ -1,0 +1,20 @@
+---
+// TODO(backup): real about content from WordPress goes here.
+import type { Locale } from '../site.config';
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { ROUTES } from '../i18n/routes';
+import { UI } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<Base locale={locale} route="about">
+  <PageIntro locale={locale} route="about">
+    <a class="button" href={ROUTES.contact[locale]}>{UI[locale].getInTouch}</a>
+  </PageIntro>
+</Base>

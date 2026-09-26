@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import { ROUTES } from '../i18n/routes';
+import { UI } from '../i18n/ui';
+---
+
+<Base locale="en" title={`${UI.en.notFoundTitle} | ${UI.fi.notFoundTitle}`} noindex>
+  <section class="page-intro container">
+    <h1>{UI.en.notFoundTitle}</h1>
+    <p class="lead">{UI.en.notFoundText}</p>
+    <p><a class="button" href={ROUTES.home.en}>{UI.en.backHome}</a></p>
+    <hr />
+    <h2 lang="fi">{UI.fi.notFoundTitle}</h2>
+    <p lang="fi">{UI.fi.notFoundText}</p>
+    <p lang="fi"><a href={ROUTES.home.fi}>{UI.fi.backHome}</a></p>
+  </section>
+</Base>

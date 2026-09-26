@@ -1,0 +1,33 @@
+---
+import { SITE, type Locale } from '../site.config';
+import { ROUTES, type RouteKey } from '../i18n/routes';
+import { UI } from '../i18n/ui';
+
+interface Props {
+  locale: Locale;
+  route?: RouteKey;
+}
+
+const { locale, route = 'home' } = Astro.props;
+const target = SITE.locales.find((l) => l !== locale)!;
+---
+
+<a
+  class="lang-switch"
+  href={ROUTES[route][target]}
+  hreflang={UI[target].htmlLang}
+  lang={UI[target].htmlLang}
+  aria-label={UI[locale].switchLabel}
+  data-lang={target}
+>
+  {UI[locale].switchTo}
+</a>
+
+<script>
+  // Remember an explicit choice so the root URL never overrides it (see worker/index.js).
+  document.querySelectorAll<HTMLAnchorElement>('a[data-lang]').forEach((link) => {
+    link.addEventListener('click', () => {
+      document.cookie = `lang=${link.dataset.lang}; Path=/; Max-Age=31536000; SameSite=Lax; Secure`;
+    });
+  });
+</script>
