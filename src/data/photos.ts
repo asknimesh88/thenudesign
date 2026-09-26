@@ -348,12 +348,15 @@ export interface Photographer {
 }
 
 /** Photographer credit per collection. Collections without an entry show no credit. */
+const DULKITH: Photographer = {
+  name: 'Dulkith Hettiarachchi',
+  instagram: 'https://www.instagram.com/dulkith_h/',
+  instagramHandle: '@dulkith_h',
+  facebook: 'https://www.facebook.com/Avendalevisuals',
+  facebookName: 'Avendale Visuals',
+};
+
 export const CREDITS: Partial<Record<Collection, Photographer>> = {
-  'evening-2026': {
-    name: 'Dulkith Hettiarachchi',
-    instagram: 'https://www.instagram.com/dulkith_h/',
-    instagramHandle: '@dulkith_h',
-    facebook: 'https://www.facebook.com/Avendalevisuals',
-    facebookName: 'Avendale Visuals',
-  },
+  'evening-2026': DULKITH,
+  'summer-2025': DULKITH,
 };

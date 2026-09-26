@@ -175,7 +175,7 @@ export function gallerySchema(opts: {
 }) {
   const photographer = opts.photographer && {
     '@type': 'Person',
-    '@id': `${opts.id}-photographer`,
+    '@id': `${SITE.url}/#photographer-${opts.photographer.name.toLowerCase().replace(/[^a-z]+/g, '-')}`,
     name: opts.photographer.name,
     jobTitle: 'Photographer',
     sameAs: opts.photographer.sameAs,
