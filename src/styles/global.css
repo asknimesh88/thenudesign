@@ -440,3 +440,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 
 /* Portraits: keep the head in frame when cropped to 4:5. */
 .pos-top img { object-position: 50% 0; }
+
+/* Photographer credit under a portfolio collection heading. */
+.credit { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1.25rem; margin: 1.5rem 0 0; font-size: 0.95rem; }
+.credit-label { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--studio-muted); }
+.credit-name { font-family: var(--serif); font-size: 1.35rem; }
+.credit a { text-decoration: underline; text-decoration-color: #ffffff55; }
+.credit a:hover { text-decoration-color: currentColor; }

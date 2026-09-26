@@ -171,21 +171,33 @@ export function gallerySchema(opts: {
   name: string;
   description: string;
   images: { url: string; caption: string; width: number; height: number }[];
+  photographer?: { name: string; sameAs: string[] };
 }) {
+  const photographer = opts.photographer && {
+    '@type': 'Person',
+    '@id': `${opts.id}-photographer`,
+    name: opts.photographer.name,
+    jobTitle: 'Photographer',
+    sameAs: opts.photographer.sameAs,
+  };
   return {
     '@type': 'ImageGallery',
     '@id': opts.id,
     name: opts.name,
     description: opts.description,
-    creator: { '@id': ids.person },
+    // Thenu designed the garments shown; the photos themselves are credited below.
+    about: { '@id': ids.business },
+    ...(photographer && { contributor: photographer }),
     image: opts.images.map((img) => ({
       '@type': 'ImageObject',
       contentUrl: abs(img.url),
       caption: img.caption,
       width: img.width,
       height: img.height,
-      creator: { '@id': ids.person },
-      copyrightHolder: { '@id': ids.business },
+      ...(photographer && {
+        creator: { '@id': photographer['@id'] },
+        creditText: `Photo: ${photographer.name}`,
+      }),
     })),
   };
 }

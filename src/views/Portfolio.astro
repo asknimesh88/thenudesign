@@ -6,7 +6,7 @@ import { ROUTES } from '../i18n/routes';
 import { PAGES } from '../i18n/pages';
 import { CONTENT } from '../i18n/content';
 import { UI } from '../i18n/ui';
-import { collection, large, type Collection } from '../data/photos';
+import { collection, large, CREDITS, type Collection } from '../data/photos';
 import { abs, gallerySchema } from '../lib/schema';
 
 interface Props {
@@ -38,6 +38,10 @@ const schema = await Promise.all(
       name: c.portfolio.collections[id].heading,
       description: c.portfolio.collections[id].text,
       images,
+      photographer: CREDITS[id] && {
+        name: CREDITS[id]!.name,
+        sameAs: [CREDITS[id]!.instagram, CREDITS[id]!.facebook].filter((u): u is string => !!u),
+      },
     });
   }),
 );
@@ -57,6 +61,24 @@ const schema = await Promise.all(
           <header class="section-head">
             <h2>{c.portfolio.collections[id].heading}</h2>
             <p class="lead">{c.portfolio.collections[id].text}</p>
+            {
+              CREDITS[id] && (
+                <p class="credit">
+                  <span class="credit-label">{ui.photography}</span>
+                  <span class="credit-name">{CREDITS[id]!.name}</span>
+                  {CREDITS[id]!.instagram && (
+                    <a href={CREDITS[id]!.instagram} target="_blank" rel="noopener">
+                      Instagram {CREDITS[id]!.instagramHandle}
+                    </a>
+                  )}
+                  {CREDITS[id]!.facebook && (
+                    <a href={CREDITS[id]!.facebook} target="_blank" rel="noopener">
+                      Facebook {CREDITS[id]!.facebookName}
+                    </a>
+                  )}
+                </p>
+              )
+            }
           </header>
           <Gallery photos={collection(id)} locale={locale} />
         </div>

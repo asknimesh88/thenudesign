@@ -338,3 +338,22 @@ export function large(p: Photo) {
 
 /** Main portrait of Thenu, also used in her Person structured data. */
 export const PORTRAIT = 'thenu-fashion-designer-tampere-portrait';
+
+export interface Photographer {
+  name: string;
+  instagram?: string;
+  instagramHandle?: string;
+  facebook?: string;
+  facebookName?: string;
+}
+
+/** Photographer credit per collection. Collections without an entry show no credit. */
+export const CREDITS: Partial<Record<Collection, Photographer>> = {
+  'evening-2026': {
+    name: 'Dulkith Hettiarachchi',
+    instagram: 'https://www.instagram.com/dulkith_h/',
+    instagramHandle: '@dulkith_h',
+    facebook: 'https://www.facebook.com/Avendalevisuals',
+    facebookName: 'Avendale Visuals',
+  },
+};
