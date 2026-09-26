@@ -79,16 +79,34 @@ between pages, so each is encoded once, and Astro caches them between builds.
 
 ## Deploying to Cloudflare
 
-**Option A: Git integration (recommended).** In the Cloudflare dashboard go to
-Workers & Pages → Create → Import a repository, pick `asknimesh88/thenudesign`, and use:
+The site works on both Cloudflare **Pages** and Cloudflare **Workers**. The only dynamic
+part is the language redirect on `/`, which lives in `worker/locale.js` and is used by
+`functions/index.js` (Pages) and `worker/index.js` (Workers).
+
+### Cloudflare Pages
+
+Workers & Pages → your Pages project → Settings → Build:
+
+| Setting                | Value           |
+| ---------------------- | --------------- |
+| Framework preset       | Astro           |
+| Build command          | `npm run build` |
+| Build output directory | `dist`          |
+
+Under Settings → Variables and Secrets, add `NODE_VERSION` = `22` (for the build).
+Then Deployments → retry the latest deployment. Add `thenudesign.com` under Custom domains.
+
+The Pages build log will say the Wrangler configuration file is not valid for Pages and is
+skipped. That is expected: `wrangler.jsonc` is only for the Workers option below.
+
+### Cloudflare Workers
+
+Workers & Pages → Create → Workers → Import a repository → `asknimesh88/thenudesign`:
 
 - Build command: `npm run build`
 - Deploy command: `npx wrangler deploy`
 
-Every push to the production branch then redeploys. Add `thenudesign.com` under the Worker's
-Settings → Domains & Routes once DNS is on Cloudflare.
+Or from your machine: `npx wrangler login`, then `npm run deploy`.
 
-**Option B: from your machine.** `npx wrangler login`, then `npm run deploy`.
-
-Keep the Worker: the Finland auto-redirect needs `request.cf.country`, which only exists on
-Cloudflare.
+Either way, the Finland auto-redirect needs `request.cf.country`, which only exists on
+Cloudflare; locally the redirect falls back to the browser language.
