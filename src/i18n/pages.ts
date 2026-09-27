@@ -16,22 +16,22 @@ export interface PageCopy {
 export const PAGES: Record<RouteKey, Record<Locale, PageCopy>> = {
   home: {
     en: {
-      title: 'Thenu – Fashion Designer & Tailor in Tampere, Finland',
+      title: 'Thenu – Evening Wear & Custom Dresses in Tampere, Finland',
       description:
-        'Custom-made dresses for women and kids, clothing alterations and upcycling in Tampere, Finland. Sri Lankan–Finnish fashion by Thenu of Tikki ja Tyyli.',
-      eyebrow: 'Fashion designer · Tampere, Finland',
-      h1: 'Custom dresses and tailoring in Tampere',
+        'Discover Evening wear 2026 by Tampere fashion designer Thenu: gowns in organza, satin and tulle. Custom dresses, alterations and upcycling in Tampere.',
+      eyebrow: 'New collection · Tampere, Finland',
+      h1: 'Evening wear 2026',
       intro:
-        'I’m Thenu, a fashion designer blending my Sri Lankan roots with Finnish sophistication. I design and sew custom dresses for women and kids, alter the clothes you already love, and give old garments a new life.',
+        'Organza, satin and tulle in deep red, teal, plum and cobalt blue. Thenu’s new collection brings Sri Lankan colour and clean Finnish lines to the evening – designed in Tampere.',
     },
     fi: {
-      title: 'Thenu – Muotisuunnittelija ja ompelija Tampereella',
+      title: 'Thenu – Iltapuvut ja mittatilausmekot Tampereella',
       description:
-        'Mittatilausmekot naisille ja lapsille, korjaukset ja muutostyöt sekä upcycling Tampereella. Tikki ja Tyyli by Thenu – srilankalais-suomalaista muotia.',
-      eyebrow: 'Muotisuunnittelija · Tampere',
-      h1: 'Mittatilausmekot ja ompelutyöt Tampereella',
+        'Tutustu tamperelaisen muotisuunnittelija Thenun Iltapuvut 2026 -mallistoon: organzaa, satiinia ja tylliä. Mittatilausmekot, muutostyöt ja upcycling.',
+      eyebrow: 'Uusi mallisto · Tampere',
+      h1: 'Iltapuvut 2026',
       intro:
-        'Olen Thenu, muotisuunnittelija, joka yhdistää srilankalaiset juurensa suomalaiseen tyylikkyyteen. Suunnittelen ja ompelen mittatilausmekkoja naisille ja lapsille, teen muutostöitä rakkaille vaatteillesi ja annan vanhoille vaatteille uuden elämän.',
+        'Organzaa, satiinia ja tylliä syvänpunaisena, petroolina, luumuna ja koboltinsinisenä. Thenun uusi mallisto tuo iltaan srilankalaisen värin ja suomalaisen selkeän muotokielen – suunniteltu Tampereella.',
     },
   },
   about: {

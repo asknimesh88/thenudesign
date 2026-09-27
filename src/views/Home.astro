@@ -7,6 +7,7 @@ import { ROUTES } from '../i18n/routes';
 import { PAGES } from '../i18n/pages';
 import { CONTENT } from '../i18n/content';
 import { UI } from '../i18n/ui';
+import { CREDITS } from '../data/photos';
 
 interface Props {
   locale: Locale;
@@ -15,47 +16,124 @@ interface Props {
 const { locale } = Astro.props;
 const page = PAGES.home[locale];
 const c = CONTENT[locale];
+const col = c.collection;
 const ui = UI[locale];
-
-const strip = [
-  'thenu-design-teal-halter-gown-front-slit',
-  'thenu-design-cobalt-blue-strapless-gown-floral-applique',
-  'thenu-design-red-organza-gown-back-view',
-  'thenu-design-pink-bronze-draped-gown-tulle-collar',
-  'thenu-design-teal-gown-red-shoulder-drape',
-  'thenu-design-mustard-floral-dress-in-motion',
-];
+const credit = CREDITS['evening-2026'];
+const collectionUrl = `${ROUTES.portfolio[locale]}#evening-2026`;
 ---
 
 <Base locale={locale} route="home">
-  <section class="hero container">
-    <div class="hero-text">
-      <p class="eyebrow">{page.eyebrow}</p>
-      <h1>{page.h1}</h1>
-      <p class="lead">{page.intro}</p>
-      <div class="actions">
-        <a class="button" href={ROUTES.contact[locale]}>{ui.getInTouch}</a>
-        <a class="link-arrow" href={ROUTES.portfolio[locale]}>{ui.seeCollections}</a>
+  <!-- Evening wear 2026 showcase -->
+  <section class="showcase">
+    <div class="container showcase-grid">
+      <div class="showcase-text">
+        <p class="eyebrow">{page.eyebrow}</p>
+        <h1>
+          {page.h1}
+          <span class="h1-by">{ui.byThenu}</span>
+        </h1>
+        <p class="lead">{page.intro}</p>
+        <div class="actions">
+          <a class="button button-light" href={collectionUrl}>{col.viewCollection}</a>
+          <a class="link-arrow" href={ROUTES.contact[locale]}>{col.bookConsultation}</a>
+        </div>
+        {
+          credit && (
+            <p class="showcase-credit">
+              {ui.photography}: <a href={credit.instagram} target="_blank" rel="noopener">{credit.name}</a>
+            </p>
+          )
+        }
       </div>
-    </div>
-    <div class="hero-media">
-      <Photo
-        name="thenu-design-red-organza-gown-puff-sleeves-portrait"
-        locale={locale}
-        width={760}
-        sizes="(min-width: 900px) 42vw, 92vw"
-        priority
-      />
-      <Photo
-        class="hero-inset"
-        name="thenu-design-floral-dress-lupin-bouquet"
-        locale={locale}
-        width={320}
-        sizes="(min-width: 900px) 16vw, 36vw"
-      />
+      <div class="showcase-media">
+        <Photo
+          class="showcase-main"
+          name="thenu-design-red-organza-gown-puff-sleeves-portrait"
+          locale={locale}
+          width={620}
+          sizes="(min-width: 900px) 34vw, 62vw"
+          priority
+        />
+        <Photo
+          class="showcase-side"
+          name="thenu-design-teal-halter-gown-front-slit"
+          locale={locale}
+          width={300}
+          sizes="(min-width: 900px) 17vw, 30vw"
+          priority
+        />
+        <Photo
+          class="showcase-side"
+          name="thenu-design-cobalt-blue-strapless-gown-floral-applique"
+          locale={locale}
+          width={300}
+          sizes="(min-width: 900px) 17vw, 30vw"
+        />
+      </div>
     </div>
   </section>
 
+  <!-- Lookbook -->
+  <section class="lookbook" aria-labelledby="lookbook-heading">
+    <div class="container lookbook-head">
+      <h2 id="lookbook-heading">{col.lookbookHeading}</h2>
+      <div class="lookbook-controls">
+        <button type="button" class="lookbook-prev" aria-label={ui.previous}>←</button>
+        <button type="button" class="lookbook-next" aria-label={ui.next}>→</button>
+        <a class="link-arrow" href={collectionUrl}>{col.allPhotos}</a>
+      </div>
+    </div>
+    <ol class="lookbook-track" role="list">
+      {
+        col.looks.map((look, i) => (
+          <li>
+            <a href={collectionUrl}>
+              <Photo name={look.photo} locale={locale} width={440} sizes="(min-width: 900px) 26vw, 72vw" />
+              <span class="look-num">
+                {col.lookLabel} {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="look-title">{look.title}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+
+  <!-- Collection story -->
+  <section class="story-banner">
+    <Photo
+      class="story-img"
+      name="thenu-design-evening-wear-collection-group-back-view"
+      locale={locale}
+      width={1920}
+      sizes="100vw"
+    />
+    <div class="story-card">
+      <p class="eyebrow">{col.heading}</p>
+      <h2>{col.storyHeading}</h2>
+      {col.story.map((p) => <p>{p}</p>)}
+    </div>
+  </section>
+
+  <!-- Made to measure -->
+  <section class="section section-dark">
+    <div class="container split">
+      <div class="split-media">
+        <Photo name="thenu-design-teal-and-red-organza-gowns-duo" locale={locale} width={640} sizes="(min-width: 900px) 40vw, 92vw" />
+      </div>
+      <div class="split-text">
+        <h2>{col.madeToMeasureHeading}</h2>
+        <p class="lead">{col.madeToMeasure}</p>
+        <div class="actions">
+          <a class="button button-light" href={ROUTES.contact[locale]}>{ui.getInTouch}</a>
+          <a class="link-arrow" href={`${ROUTES.services[locale]}#${c.services[0].id}`}>{col.customDresses}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Thenu -->
   <section class="section">
     <div class="container split">
       <div class="split-media">
@@ -91,26 +169,6 @@ const strip = [
         }
       </ol>
     </div>
-  </section>
-
-  <section class="section section-dark">
-    <div class="container section-head section-head-row">
-      <div>
-        <p class="eyebrow">{c.collection.eyebrow}</p>
-        <h2>{c.collection.heading}</h2>
-        <p class="lead">{c.collection.text}</p>
-      </div>
-      <a class="button button-light" href={ROUTES.portfolio[locale]}>{c.collection.cta}</a>
-    </div>
-    <ul class="strip" role="list">
-      {
-        strip.map((name) => (
-          <li>
-            <Photo name={name} locale={locale} width={420} sizes="(min-width: 900px) 22vw, 60vw" />
-          </li>
-        ))
-      }
-    </ul>
   </section>
 
   <section class="section">
@@ -156,3 +214,11 @@ const strip = [
 
   <CtaBand locale={locale} />
 </Base>
+
+<script>
+  // Lookbook arrow buttons scroll the track by roughly one card.
+  const track = document.querySelector<HTMLElement>('.lookbook-track');
+  const step = () => (track?.querySelector('li')?.getBoundingClientRect().width ?? 300) + 16;
+  document.querySelector('.lookbook-prev')?.addEventListener('click', () => track?.scrollBy({ left: -step(), behavior: 'smooth' }));
+  document.querySelector('.lookbook-next')?.addEventListener('click', () => track?.scrollBy({ left: step(), behavior: 'smooth' }));
+</script>

@@ -234,29 +234,117 @@ h3 { font-size: clamp(1.45rem, 2.2vw, 1.75rem); }
   .page-head { grid-template-columns: 1fr 1fr; gap: 5rem; }
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Home: Evening wear showcase ---------- */
 
-.hero {
+.showcase {
+  background: var(--studio);
+  color: var(--studio-text);
+  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 6rem);
+  overflow: hidden;
+}
+.showcase .eyebrow { color: #d9a3ab; }
+.showcase .lead { color: var(--studio-muted); }
+.showcase-grid { display: grid; gap: 3rem; align-items: center; }
+.showcase h1 { font-size: clamp(3.2rem, 8.5vw, 7rem); line-height: 0.95; margin-bottom: 0.4em; }
+.h1-by {
+  display: block;
+  font-style: italic;
+  font-size: 0.42em;
+  color: #d9a3ab;
+  margin-top: 0.35em;
+  letter-spacing: 0;
+}
+.showcase .actions a.link-arrow:hover { color: #fff; }
+.showcase-credit { margin: 2rem 0 0; font-size: 0.85rem; color: var(--studio-muted); letter-spacing: 0.04em; }
+.showcase-credit a { color: var(--studio-text); }
+
+.showcase-media {
   display: grid;
-  gap: 3rem;
-  padding-block: clamp(2.5rem, 6vw, 5rem) var(--space);
-  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.75rem;
 }
-.hero h1 { max-width: 13ch; }
-.hero-media { position: relative; }
-.hero-media > picture:first-child img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.hero-inset {
-  position: absolute;
-  width: 38%;
-  left: -8%;
-  bottom: -2.5rem;
-}
-.hero-inset img { border: 8px solid var(--paper); aspect-ratio: 3 / 4; object-fit: cover; width: 100%; }
+.showcase-main { grid-row: 1 / 3; }
+.showcase-media img { width: 100%; height: 100%; object-fit: cover; }
+.showcase-main img { aspect-ratio: 2 / 3; }
+.showcase-side img { aspect-ratio: auto; }
+.showcase-side:nth-of-type(2) { align-self: end; }
 @media (min-width: 900px) {
-  .hero { grid-template-columns: 1.05fr 0.95fr; gap: 5rem; }
+  .showcase-grid { grid-template-columns: 0.9fr 1.1fr; gap: 4.5rem; }
 }
-@media (max-width: 899px) {
-  .hero-inset { left: auto; right: -4px; width: 34%; bottom: -1.5rem; }
+
+/* ---------- Home: lookbook ---------- */
+
+.lookbook { background: var(--studio); color: var(--studio-text); padding-bottom: clamp(3.5rem, 7vw, 6rem); border-top: 1px solid #ffffff14; padding-top: clamp(3rem, 6vw, 5rem); }
+.lookbook-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 2rem; }
+.lookbook-head h2 { margin: 0; }
+.lookbook-controls { display: flex; align-items: center; gap: 0.75rem 1rem; }
+.lookbook-controls button {
+  width: 48px; height: 48px;
+  border: 1px solid #ffffff40;
+  background: none;
+  color: var(--studio-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.lookbook-controls button:hover { background: var(--studio-text); color: var(--studio); }
+.lookbook-controls .link-arrow { margin-left: 0.75rem; }
+@media (max-width: 699px) { .lookbook-controls button { display: none; } .lookbook-controls .link-arrow { margin-left: 0; } }
+
+.lookbook-track {
+  list-style: none;
+  margin: 0;
+  padding: 0 var(--gutter) 0.5rem;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(240px, 72vw);
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff40 transparent;
+}
+@media (min-width: 900px) {
+  .lookbook-track {
+    grid-auto-columns: minmax(260px, 26vw);
+    padding-inline: max(var(--gutter), (100vw - var(--max)) / 2);
+    scroll-padding-inline: max(var(--gutter), (100vw - var(--max)) / 2);
+  }
+}
+.lookbook-track li { scroll-snap-align: start; }
+.lookbook-track a { display: block; text-decoration: none; }
+.lookbook-track picture { overflow: hidden; display: block; }
+.lookbook-track img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; transition: transform 0.6s ease; }
+.lookbook-track a:hover img { transform: scale(1.04); }
+.look-num { display: block; margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #d9a3ab; }
+.look-title { display: block; font-family: var(--serif); font-size: 1.5rem; margin-top: 0.2rem; }
+.lookbook-track a:hover .look-title { color: #fff; }
+
+/* ---------- Home: collection story banner ---------- */
+
+.story-banner { position: relative; display: grid; min-height: clamp(520px, 78vh, 820px); background: var(--studio); }
+.story-banner > * { grid-area: 1 / 1; }
+.story-img, .story-img img { width: 100%; height: 100%; }
+.story-img img { object-fit: cover; object-position: 50% 30%; }
+.story-card {
+  align-self: center;
+  justify-self: start;
+  margin: var(--gutter);
+  max-width: 540px;
+  background: rgb(22 19 19 / 0.88);
+  color: var(--studio-text);
+  padding: clamp(1.75rem, 4vw, 3rem);
+  backdrop-filter: blur(4px);
+}
+.story-card .eyebrow { color: #d9a3ab; }
+.story-card p:last-child { margin-bottom: 0; color: var(--studio-muted); }
+@media (min-width: 900px) { .story-card { margin-left: max(var(--gutter), (100vw - var(--max)) / 2); } }
+@media (max-width: 699px) {
+  .story-banner { display: block; min-height: 0; }
+  .story-img img { aspect-ratio: 3 / 2; height: auto; }
+  .story-card { margin: 0; max-width: none; background: var(--studio); }
 }
 
 /* ---------- Split (text + image) ---------- */

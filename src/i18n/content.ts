@@ -36,7 +36,7 @@ const en = {
   services: [
     {
       id: 'custom-dresses',
-      photo: 'thenu-design-red-organza-gown-puff-sleeves-portrait',
+      photo: 'thenu-design-mint-floral-puff-sleeve-dress',
       title: 'Custom dresses for women and kids',
       short:
         'Designed and tailored to your measurements, from everyday dresses to evening gowns and outfits for special occasions.',
@@ -119,6 +119,30 @@ const en = {
     heading: 'Evening wear 2026',
     text: 'Organza, satin and tulle in deep red, teal and cobalt. A collection of evening gowns where Sri Lankan colour meets clean Finnish lines.',
     cta: 'View the portfolio',
+    viewCollection: 'View the collection',
+    bookConsultation: 'Book a consultation',
+    lookbookHeading: 'The lookbook',
+    lookLabel: 'Look',
+    allPhotos: 'See all photos',
+    storyHeading: 'Colour, structure and movement',
+    story: [
+      'Evening wear 2026 brings together the vibrant colour of Thenu’s Sri Lankan heritage and the clean, considered lines of Finnish design.',
+      'Deep jewel tones – red, teal, plum and cobalt – meet sculpted bows, draped shoulders, layers of organza and flowing trains. Each gown is designed to move with the person wearing it, from the first entrance to the last dance.',
+    ],
+    madeToMeasureHeading: 'Your own evening look',
+    madeToMeasure:
+      'Fell for a look? Thenu designs custom evening wear and occasion dresses made to your measurements – for parties, weddings, galas and every celebration in between.',
+    customDresses: 'About custom dresses',
+    looks: [
+      { photo: 'thenu-design-pink-bronze-draped-gown-tulle-collar', title: 'Bronze drape gown' },
+      { photo: 'thenu-design-red-organza-gown-puff-sleeves-seated', title: 'Red organza gown' },
+      { photo: 'thenu-design-teal-gown-red-shoulder-drape', title: 'Teal and red drape' },
+      { photo: 'thenu-design-cobalt-blue-gown-back-bow', title: 'Cobalt bow' },
+      { photo: 'thenu-design-teal-halter-gown-back-bow', title: 'Teal halter gown' },
+      { photo: 'thenu-design-red-organza-gown-back-view', title: 'Organza train' },
+      { photo: 'thenu-design-mustard-floral-dress-in-motion', title: 'Mustard floral dress' },
+      { photo: 'thenu-design-plum-halter-gown-evening-wear-trio', title: 'Plum halter gown' },
+    ],
   },
   valuesHeading: 'What makes a Thenu piece',
   values: [
@@ -237,7 +261,7 @@ const fi: Content = {
   services: [
     {
       id: 'mittatilausmekot',
-      photo: 'thenu-design-red-organza-gown-puff-sleeves-portrait',
+      photo: 'thenu-design-mint-floral-puff-sleeve-dress',
       title: 'Mittatilausmekot naisille ja lapsille',
       short: 'Suunniteltu ja ommeltu mittojesi mukaan – arkimekoista iltapukuihin ja juhla-asuihin.',
       body: [
@@ -319,6 +343,30 @@ const fi: Content = {
     heading: 'Iltapuvut 2026',
     text: 'Organzaa, satiinia ja tylliä syvänpunaisena, petroolina ja koboltinsinisenä. Iltapukumallisto, jossa srilankalainen väri kohtaa suomalaisen selkeän muotokielen.',
     cta: 'Katso portfolio',
+    viewCollection: 'Katso mallisto',
+    bookConsultation: 'Varaa konsultaatio',
+    lookbookHeading: 'Lookbook',
+    lookLabel: 'Asu',
+    allPhotos: 'Katso kaikki kuvat',
+    storyHeading: 'Väriä, rakennetta ja liikettä',
+    story: [
+      'Iltapuvut 2026 yhdistää Thenun srilankalaisen perinnön eloisat värit ja suomalaisen muotoilun selkeät, harkitut linjat.',
+      'Syvät jalokivisävyt – punainen, petrooli, luumu ja koboltti – kohtaavat muotoillut rusetit, drapeeratut olkapäät, organzakerrokset ja laskeutuvat laahukset. Jokainen puku on suunniteltu liikkumaan kantajansa mukana ensimmäisestä sisääntulosta viimeiseen tanssiin.',
+    ],
+    madeToMeasureHeading: 'Oma iltapukusi',
+    madeToMeasure:
+      'Ihastuitko johonkin asuun? Thenu suunnittelee mittatilausiltapukuja ja juhlamekkoja juuri sinun mittojesi mukaan – juhliin, häihin, gaaloihin ja kaikkiin muihin tilaisuuksiin.',
+    customDresses: 'Lisää mittatilausmekoista',
+    looks: [
+      { photo: 'thenu-design-pink-bronze-draped-gown-tulle-collar', title: 'Pronssinen drapeeraus' },
+      { photo: 'thenu-design-red-organza-gown-puff-sleeves-seated', title: 'Punainen organzapuku' },
+      { photo: 'thenu-design-teal-gown-red-shoulder-drape', title: 'Petrooli ja punainen' },
+      { photo: 'thenu-design-cobalt-blue-gown-back-bow', title: 'Kobolttirusetti' },
+      { photo: 'thenu-design-teal-halter-gown-back-bow', title: 'Petrooli niskanauhapuku' },
+      { photo: 'thenu-design-red-organza-gown-back-view', title: 'Organzalaahus' },
+      { photo: 'thenu-design-mustard-floral-dress-in-motion', title: 'Sinapinkeltainen kukkamekko' },
+      { photo: 'thenu-design-plum-halter-gown-evening-wear-trio', title: 'Luumunvärinen niskanauhapuku' },
+    ],
   },
   valuesHeading: 'Mikä tekee Thenun vaatteesta ainutlaatuisen',
   values: [
