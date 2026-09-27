@@ -38,18 +38,18 @@ export const PAGES: Record<RouteKey, Record<Locale, PageCopy>> = {
     en: {
       title: 'About Thenu | Sri Lankan–Finnish Fashion Designer, Tampere',
       description:
-        'Meet Thenu, the fashion designer behind Tikki ja Tyyli in Tampere. Sri Lankan roots, Finnish elegance and a commitment to sustainable, made-to-last clothing.',
+        'Meet Thenu, the Tampere fashion designer behind Tikki ja Tyyli: 10+ years of experience, Sri Lankan roots, Finnish elegance and clothes made to last.',
       eyebrow: 'Our story',
       h1: 'Meet Thenu, fashion designer in Tampere',
-      intro: 'Sri Lankan roots, Finnish sophistication and a love of well-made clothes.',
+      intro: 'More than 10 years in fashion, Sri Lankan roots, Finnish sophistication and a love of well-made clothes.',
     },
     fi: {
       title: 'Tietoa Thenusta | Muotisuunnittelija Tampereelta',
       description:
-        'Tutustu Thenuun, Tikki ja Tyyli -merkin suunnittelijaan Tampereella. Srilankalaiset juuret, suomalainen eleganssi ja kestävät, pitkäikäiset vaatteet.',
+        'Tutustu Thenuun, Tikki ja Tyylin suunnittelijaan Tampereella: yli 10 vuoden kokemus, srilankalaiset juuret, suomalainen eleganssi ja kestävät vaatteet.',
       eyebrow: 'Tarinamme',
       h1: 'Tutustu Thenuun – muotisuunnittelija Tampereelta',
-      intro: 'Srilankalaiset juuret, suomalainen tyylikkyys ja rakkaus hyvin tehtyihin vaatteisiin.',
+      intro: 'Yli 10 vuotta muodin parissa, srilankalaiset juuret, suomalainen tyylikkyys ja rakkaus hyvin tehtyihin vaatteisiin.',
     },
   },
   services: {
@@ -96,7 +96,7 @@ export const PAGES: Record<RouteKey, Record<Locale, PageCopy>> = {
     en: {
       title: 'Contact Thenu | Fashion Designer & Tailor in Tampere',
       description:
-        'Get in touch with Thenu in Tampere about a custom dress, alterations or upcycling. Email hello@thenudesign.com or send a message on Instagram.',
+        'Get in touch with Thenu in Tampere about a custom dress, alterations or upcycling. Email dilkienoka@gmail.com or send a message on Instagram.',
       eyebrow: 'Contact',
       h1: 'Get in touch',
       intro:
@@ -105,7 +105,7 @@ export const PAGES: Record<RouteKey, Record<Locale, PageCopy>> = {
     fi: {
       title: 'Ota yhteyttä | Thenu, muotisuunnittelija Tampere',
       description:
-        'Ota yhteyttä Thenuun Tampereella mittatilausmekoista, korjaus- ja muutostöistä tai upcyclingista. Sähköposti hello@thenudesign.com tai viesti Instagramissa.',
+        'Ota yhteyttä Thenuun Tampereella mittatilausmekoista, korjaus- ja muutostöistä tai upcyclingista. Sähköposti dilkienoka@gmail.com tai viesti Instagramissa.',
       eyebrow: 'Yhteystiedot',
       h1: 'Ota yhteyttä',
       intro:

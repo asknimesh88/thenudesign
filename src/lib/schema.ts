@@ -79,6 +79,8 @@ function person(image?: string) {
     name: SITE.designer,
     ...(image && { image: abs(image) }),
     jobTitle: 'Fashion Designer',
+    description:
+      'Fashion designer and tailor in Tampere, Finland, with more than 10 years of experience in fashion design and tailoring.',
     worksFor: { '@id': ids.business },
     homeLocation: { '@type': 'Place', name: 'Tampere, Finland' },
     address: postalAddress(),

@@ -180,7 +180,7 @@ const en = {
   about: {
     story: [
       'Thenu is a fashion designer based in Tampere, Finland. Her designs combine the vibrant colours and patterns of her Sri Lankan heritage with the clean lines and understated elegance of Finnish design.',
-      'She founded Tikki ja Tyyli – Finnish for “stitch and style” – to create clothes that are personal, creative and sustainable. Her years of experience in modern fashion now go into custom dresses, alterations and upcycling projects that help clients find pieces that fit perfectly and feel like their own.',
+      'With more than 10 years of experience in fashion design and tailoring, she founded Tikki ja Tyyli – Finnish for “stitch and style” – to create clothes that are personal, creative and sustainable. Today that experience goes into custom dresses, alterations and upcycling projects that help clients find pieces that fit perfectly and feel like their own.',
       'Every garment is made with care, from the first sketch to the final stitch. For Thenu, fashion is not about following trends but about helping each person express who they are.',
     ],
     journeyHeading: 'From Sri Lanka to Finland',
@@ -236,7 +236,7 @@ const en = {
     },
     {
       q: 'How do I get started?',
-      a: 'Send an email to hello@thenudesign.com or a message on Instagram describing what you have in mind. Photos of the garment or your inspiration are very helpful. Thenu will get back to you to discuss the details.',
+      a: 'Send an email to dilkienoka@gmail.com or a message on Instagram describing what you have in mind. Photos of the garment or your inspiration are very helpful. Thenu will get back to you to discuss the details.',
     },
     {
       q: 'How can I follow new collections?',
@@ -404,7 +404,7 @@ const fi: Content = {
   about: {
     story: [
       'Thenu on tamperelainen muotisuunnittelija. Hänen suunnittelussaan yhdistyvät srilankalaisen perinnön eloisat värit ja kuosit sekä suomalaisen muotoilun selkeät linjat ja hillitty eleganssi.',
-      'Hän perusti Tikki ja Tyylin luodakseen vaatteita, jotka ovat henkilökohtaisia, luovia ja kestäviä. Vuosien kokemus modernista muodista näkyy nyt mittatilausmekoissa, muutostöissä ja upcycling-projekteissa, joiden avulla asiakkaat löytävät täydellisesti istuvia ja omalta tuntuvia vaatteita.',
+      'Yli 10 vuoden kokemuksella muotisuunnittelusta ja ompelusta hän perusti Tikki ja Tyylin luodakseen vaatteita, jotka ovat henkilökohtaisia, luovia ja kestäviä. Tänään tämä kokemus näkyy mittatilausmekoissa, muutostöissä ja upcycling-projekteissa, joiden avulla asiakkaat löytävät täydellisesti istuvia ja omalta tuntuvia vaatteita.',
       'Jokainen vaate tehdään huolella ensimmäisestä luonnoksesta viimeiseen tikkiin. Thenulle muoti ei ole trendien seuraamista, vaan sitä, että jokainen voi ilmaista itseään omana itsenään.',
     ],
     journeyHeading: 'Sri Lankasta Suomeen',
@@ -460,7 +460,7 @@ const fi: Content = {
     },
     {
       q: 'Miten pääsen alkuun?',
-      a: 'Lähetä sähköpostia osoitteeseen hello@thenudesign.com tai viesti Instagramissa ja kerro, mitä sinulla on mielessä. Kuvat vaatteesta tai inspiraatiosta auttavat paljon. Thenu palaa asiaan ja käy yksityiskohdat kanssasi läpi.',
+      a: 'Lähetä sähköpostia osoitteeseen dilkienoka@gmail.com tai viesti Instagramissa ja kerro, mitä sinulla on mielessä. Kuvat vaatteesta tai inspiraatiosta auttavat paljon. Thenu palaa asiaan ja käy yksityiskohdat kanssasi läpi.',
     },
     {
       q: 'Miten pysyn ajan tasalla uusista mallistoista?',

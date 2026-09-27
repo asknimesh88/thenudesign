@@ -8,7 +8,7 @@ export const SITE = {
   // The brand name used on social media; listed as an alternate name in structured data.
   brand: 'Tikki ja Tyyli by Thenu',
   designer: 'Thenu',
-  email: 'hello@thenudesign.com',
+  email: 'dilkienoka@gmail.com',
   phone: '', // international format, e.g. '+358 40 123 4567'. Empty = hidden everywhere.
   businessId: '', // Finnish Y-tunnus, if any
   address: {
