@@ -245,7 +245,7 @@ h3 { font-size: clamp(1.45rem, 2.2vw, 1.75rem); }
 .showcase .eyebrow { color: #d9a3ab; }
 .showcase .lead { color: var(--studio-muted); }
 .showcase-grid { display: grid; gap: 3rem; align-items: center; }
-.showcase h1 { font-size: clamp(3.2rem, 8.5vw, 7rem); line-height: 0.95; margin-bottom: 0.4em; }
+.showcase h1 { font-size: clamp(2.7rem, 5.4vw, 4.9rem); line-height: 1.02; margin-bottom: 0.4em; max-width: 12ch; }
 .h1-by {
   display: block;
   font-style: italic;
@@ -318,9 +318,6 @@ h3 { font-size: clamp(1.45rem, 2.2vw, 1.75rem); }
 .lookbook-track picture { overflow: hidden; display: block; }
 .lookbook-track img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; transition: transform 0.6s ease; }
 .lookbook-track a:hover img { transform: scale(1.04); }
-.look-num { display: block; margin-top: 1rem; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: #d9a3ab; }
-.look-title { display: block; font-family: var(--serif); font-size: 1.5rem; margin-top: 0.2rem; }
-.lookbook-track a:hover .look-title { color: #fff; }
 
 /* ---------- Home: collection story banner ---------- */
 

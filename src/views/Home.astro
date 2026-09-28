@@ -85,14 +85,10 @@ const collectionUrl = `${ROUTES.portfolio[locale]}#evening-2026`;
     </div>
     <ol class="lookbook-track" role="list">
       {
-        col.looks.map((look, i) => (
+        col.looks.map((name) => (
           <li>
             <a href={collectionUrl}>
-              <Photo name={look.photo} locale={locale} width={440} sizes="(min-width: 900px) 26vw, 72vw" />
-              <span class="look-num">
-                {col.lookLabel} {String(i + 1).padStart(2, '0')}
-              </span>
-              <span class="look-title">{look.title}</span>
+              <Photo name={name} locale={locale} width={440} sizes="(min-width: 900px) 26vw, 72vw" />
             </a>
           </li>
         ))

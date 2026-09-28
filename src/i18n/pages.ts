@@ -19,19 +19,19 @@ export const PAGES: Record<RouteKey, Record<Locale, PageCopy>> = {
       title: 'Thenu – Evening Wear & Custom Dresses in Tampere, Finland',
       description:
         'Discover Evening wear 2026 by Tampere fashion designer Thenu: gowns in organza, satin and tulle. Custom dresses, alterations and upcycling in Tampere.',
-      eyebrow: 'New collection · Tampere, Finland',
-      h1: 'Evening wear 2026',
+      eyebrow: 'Evening wear 2026 · Tampere, Finland',
+      h1: 'Timeless Elegance & Everyday Style',
       intro:
-        'Organza, satin and tulle in deep red, teal, plum and cobalt blue. Thenu’s new collection brings Sri Lankan colour and clean Finnish lines to the evening – designed in Tampere.',
+        'Step into a world where fashion meets effortless grace. From show-stopping party dresses and refined evening wear to chic casual styles for your everyday moments, our collection is thoughtfully crafted to elevate your wardrobe. Discover tailored silhouettes, premium craftsmanship, and designs that let your unique beauty shine for every occasion.',
     },
     fi: {
       title: 'Thenu – Iltapuvut ja mittatilausmekot Tampereella',
       description:
         'Tutustu tamperelaisen muotisuunnittelija Thenun Iltapuvut 2026 -mallistoon: organzaa, satiinia ja tylliä. Mittatilausmekot, muutostyöt ja upcycling.',
-      eyebrow: 'Uusi mallisto · Tampere',
-      h1: 'Iltapuvut 2026',
+      eyebrow: 'Iltapuvut 2026 · Tampere',
+      h1: 'Ajatonta eleganssia ja arjen tyyliä',
       intro:
-        'Organzaa, satiinia ja tylliä syvänpunaisena, petroolina, luumuna ja koboltinsinisenä. Thenun uusi mallisto tuo iltaan srilankalaisen värin ja suomalaisen selkeän muotokielen – suunniteltu Tampereella.',
+        'Astu maailmaan, jossa muoti kohtaa vaivattoman sulokkuuden. Näyttävistä juhlamekoista ja hienostuneista iltapuvuista tyylikkäisiin arkiasuihin – mallistomme on huolella suunniteltu kohottamaan vaatekaappiasi. Löydä istuvat siluetit, laadukas käsityö ja mallit, jotka antavat ainutlaatuisen kauneutesi loistaa jokaisessa tilaisuudessa.',
     },
   },
   about: {
