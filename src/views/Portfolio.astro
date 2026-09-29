@@ -18,7 +18,7 @@ const { locale } = Astro.props;
 const page = PAGES.portfolio[locale];
 const c = CONTENT[locale];
 const ui = UI[locale];
-const order: Collection[] = ['evening-2026', 'summer-2025'];
+const order: Collection[] = ['collection-2026', 'summer-2025'];
 const url = abs(ROUTES.portfolio[locale]);
 
 const schema = await Promise.all(
@@ -48,8 +48,8 @@ const schema = await Promise.all(
 );
 ---
 
-<Base locale={locale} route="portfolio" image="thenu-design-evening-wear-collection-group" schema={schema}>
-  <PageHead locale={locale} eyebrow={page.eyebrow} title={page.h1} intro={page.intro} photos={['thenu-design-evening-wear-collection-group', 'thenu-design-floral-dress-blue-tulle-skirt-lupins']} />
+<Base locale={locale} route="portfolio" image="thenu-design-2026-collection-group" schema={schema}>
+  <PageHead locale={locale} eyebrow={page.eyebrow} title={page.h1} intro={page.intro} photos={['thenu-design-2026-collection-group', 'thenu-design-floral-dress-blue-tulle-skirt-lupins']} />
 
   {
     order.map((id, i) => (

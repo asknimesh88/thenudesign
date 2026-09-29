@@ -11,7 +11,7 @@ import type { Locale } from '../site.config';
 
 const files = import.meta.glob<{ default: ImageMetadata }>('../assets/photos/**/*.jpg', { eager: true });
 
-export type Collection = 'evening-2026' | 'summer-2025' | 'portrait';
+export type Collection = 'collection-2026' | 'summer-2025' | 'portrait';
 
 interface PhotoInfo {
   collection: Collection;
@@ -35,128 +35,128 @@ const INFO: Record<string, PhotoInfo> = {
     },
   },
 
-  // Evening wear collection, studio shoot 2026
+  // The 2026 Collection, studio shoot 2026
   'thenu-design-red-organza-gown-puff-sleeves-portrait': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
-      en: 'Red organza evening gown with puff sleeves and a cut-out bodice, designed by Thenu in Tampere',
-      fi: 'Punainen organzainen iltapuku puhvihihoilla ja avoimella yläosalla, Thenun suunnittelema Tampereella',
+      en: 'Red organza gown with puff sleeves and a cut-out bodice, designed by Thenu in Tampere',
+      fi: 'Punainen organzainen juhlapuku puhvihihoilla ja avoimella yläosalla, Thenun suunnittelema Tampereella',
     },
   },
   'thenu-design-red-organza-gown-puff-sleeves-seated': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Red organza gown with a full layered skirt and puff sleeves, shown seated',
       fi: 'Punainen organzapuku, jossa kerroksellinen täyteläinen helma ja puhvihihat, istuva asento',
     },
   },
   'thenu-design-red-organza-gown-back-view': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Back view of the red organza gown with lace-up detail and flowing train',
       fi: 'Punainen organzapuku takaa: nyörityskoriste ja laskeutuva laahus',
     },
   },
   'thenu-design-teal-halter-gown-front-slit': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
-      en: 'Teal halter-neck evening gown with a front slit and red ruffle trim',
-      fi: 'Petroolinvärinen niskanauhallinen iltapuku, jossa etuhalkio ja punainen röyhelökoriste',
+      en: 'Teal halter-neck gown with a front slit and red ruffle trim',
+      fi: 'Petroolinvärinen niskanauhallinen juhlapuku, jossa etuhalkio ja punainen röyhelökoriste',
     },
   },
   'thenu-design-teal-halter-gown-back-bow': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Back of the teal halter gown tied with a large plum satin bow',
-      fi: 'Petroolinvärinen iltapuku takaa, vyötäröllä suuri luumunvärinen satiinirusetti',
+      fi: 'Petroolinvärinen juhlapuku takaa, vyötäröllä suuri luumunvärinen satiinirusetti',
     },
   },
   'thenu-design-teal-gown-red-shoulder-drape': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Fitted teal gown with an asymmetric red draped shoulder',
-      fi: 'Vartalonmyötäinen petrooli iltapuku, jossa epäsymmetrinen punainen olkadrapeeraus',
+      fi: 'Vartalonmyötäinen petrooli juhlapuku, jossa epäsymmetrinen punainen olkadrapeeraus',
     },
   },
   'thenu-design-teal-gown-red-shoulder-drape-side': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Side view of the teal gown with red shoulder drape and floor-length skirt',
-      fi: 'Petrooli iltapuku sivulta: punainen olkadrapeeraus ja maahan ulottuva helma',
+      fi: 'Petrooli juhlapuku sivulta: punainen olkadrapeeraus ja maahan ulottuva helma',
     },
   },
   'thenu-design-teal-and-red-organza-gowns-duo': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
-      en: 'Two evening gowns side by side: teal with a red drape and red organza with puff sleeves',
-      fi: 'Kaksi iltapukua rinnakkain: petrooli punaisella drapeerauksella ja punainen organzapuku puhvihihoilla',
+      en: 'Two gowns side by side: teal with a red drape and red organza with puff sleeves',
+      fi: 'Kaksi juhlapukua rinnakkain: petrooli punaisella drapeerauksella ja punainen organzapuku puhvihihoilla',
     },
   },
   'thenu-design-cobalt-blue-strapless-gown-floral-applique': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Cobalt blue strapless gown with 3D floral appliqués on the bodice',
-      fi: 'Koboltinsininen olkaimeton iltapuku, jonka yläosassa kolmiulotteiset kukka-applikaatiot',
+      fi: 'Koboltinsininen olkaimeton juhlapuku, jonka yläosassa kolmiulotteiset kukka-applikaatiot',
     },
   },
   'thenu-design-cobalt-blue-gown-back-bow': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Back of the cobalt blue gown with a sculpted bow and full skirt',
-      fi: 'Koboltinsininen iltapuku takaa: muotoiltu rusetti ja täyteläinen helma',
+      fi: 'Koboltinsininen juhlapuku takaa: muotoiltu rusetti ja täyteläinen helma',
     },
   },
   'thenu-design-pink-bronze-draped-gown-tulle-collar': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Pink and white gown with a bronze satin drape and a pleated tulle collar',
-      fi: 'Vaaleanpunavalkoinen iltapuku, pronssinen satiinidrapeeraus ja laskostettu tyllikaulus',
+      fi: 'Vaaleanpunavalkoinen juhlapuku, pronssinen satiinidrapeeraus ja laskostettu tyllikaulus',
     },
   },
-  'thenu-design-evening-wear-collection-group': {
-    collection: 'evening-2026',
+  'thenu-design-2026-collection-group': {
+    collection: 'collection-2026',
     alt: {
-      en: 'Models wearing the Thenu evening wear collection in teal, cobalt, plum and red',
-      fi: 'Mallit Thenun iltapukumallistossa: petrooli, koboltti, luumu ja punainen',
+      en: 'Models wearing the Thenu 2026 collection in teal, cobalt, plum and red',
+      fi: 'Mallit Thenun Mallisto 2026 -kokoelmassa: petrooli, koboltti, luumu ja punainen',
     },
   },
-  'thenu-design-evening-wear-collection-group-back-view': {
-    collection: 'evening-2026',
+  'thenu-design-2026-collection-group-back-view': {
+    collection: 'collection-2026',
     alt: {
-      en: 'The evening wear collection from behind, showing bows, open backs and trains',
-      fi: 'Iltapukumallisto takaa: rusetit, avoimet selät ja laahukset',
+      en: 'The 2026 collection from behind, showing bows, open backs and trains',
+      fi: 'Mallisto 2026 takaa: rusetit, avoimet selät ja laahukset',
     },
   },
-  'thenu-design-teal-and-red-evening-gowns-trio': {
-    collection: 'evening-2026',
+  'thenu-design-teal-and-red-gowns-trio': {
+    collection: 'collection-2026',
     alt: {
       en: 'Three gowns from the collection: teal halter, teal and red, and red organza',
-      fi: 'Kolme mallistoon kuuluvaa iltapukua: petrooli niskanauhallinen, petrooli-punainen ja punainen organza',
+      fi: 'Kolme mallistoon kuuluvaa juhlapukua: petrooli niskanauhallinen, petrooli-punainen ja punainen organza',
     },
   },
-  'thenu-design-plum-halter-gown-evening-wear-trio': {
-    collection: 'evening-2026',
+  'thenu-design-plum-halter-gown-trio': {
+    collection: 'collection-2026',
     alt: {
       en: 'Plum halter gown with blue trim, a pink and bronze gown and a cobalt gown',
       fi: 'Luumunvärinen niskanauhallinen puku sinisellä reunuksella, vaaleanpunapronssinen puku ja kobolttipuku',
     },
   },
-  'thenu-design-evening-gowns-trio-seated': {
-    collection: 'evening-2026',
+  'thenu-design-gowns-trio-seated': {
+    collection: 'collection-2026',
     alt: {
-      en: 'Three evening gowns in plum, pink and bronze, and cobalt blue',
-      fi: 'Kolme iltapukua: luumu, vaaleanpunapronssinen ja koboltinsininen',
+      en: 'Three gowns in plum, pink and bronze, and cobalt blue',
+      fi: 'Kolme juhlapukua: luumu, vaaleanpunapronssinen ja koboltinsininen',
     },
   },
   'thenu-design-mustard-floral-shirt-dress': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'Mustard yellow shirt dress with a blue floral print and wide sleeves',
       fi: 'Sinapinkeltainen paitamekko sinisellä kukkakuosilla ja leveillä hihoilla',
     },
   },
   'thenu-design-mustard-floral-dress-in-motion': {
-    collection: 'evening-2026',
+    collection: 'collection-2026',
     alt: {
       en: 'The mustard floral dress in motion, showing its wide flowing skirt',
       fi: 'Sinapinkeltainen kukkamekko liikkeessä, leveä laskeutuva helma',
@@ -357,6 +357,6 @@ const DULKITH: Photographer = {
 };
 
 export const CREDITS: Partial<Record<Collection, Photographer>> = {
-  'evening-2026': DULKITH,
+  'collection-2026': DULKITH,
   'summer-2025': DULKITH,
 };

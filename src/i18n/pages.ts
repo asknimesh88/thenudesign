@@ -16,22 +16,22 @@ export interface PageCopy {
 export const PAGES: Record<RouteKey, Record<Locale, PageCopy>> = {
   home: {
     en: {
-      title: 'Thenu – Evening Wear & Custom Dresses in Tampere, Finland',
+      title: 'Thenu – Fashion Designer & Custom Dresses in Tampere, Finland',
       description:
-        'Discover Evening wear 2026 by Tampere fashion designer Thenu: gowns in organza, satin and tulle. Custom dresses, alterations and upcycling in Tampere.',
-      eyebrow: 'Evening wear 2026 · Tampere, Finland',
+        'Discover the 2026 collection by Tampere fashion designer Thenu: party dresses, gowns and everyday styles. Custom dresses, alterations and upcycling.',
+      eyebrow: 'The 2026 Collection · Tampere, Finland',
       h1: 'Timeless Elegance & Everyday Style',
       intro:
-        'Step into a world where fashion meets effortless grace. From show-stopping party dresses and refined evening wear to chic casual styles for your everyday moments, our collection is thoughtfully crafted to elevate your wardrobe. Discover tailored silhouettes, premium craftsmanship, and designs that let your unique beauty shine for every occasion.',
+        'Step into a world where fashion meets effortless grace. From show-stopping party dresses and refined occasion wear to chic casual styles for your everyday moments, our collection is thoughtfully crafted to elevate your wardrobe. Discover tailored silhouettes, premium craftsmanship, and designs that let your unique beauty shine for every occasion.',
     },
     fi: {
-      title: 'Thenu – Iltapuvut ja mittatilausmekot Tampereella',
+      title: 'Thenu – Muotisuunnittelija ja mittatilausmekot Tampereella',
       description:
-        'Tutustu tamperelaisen muotisuunnittelija Thenun Iltapuvut 2026 -mallistoon: organzaa, satiinia ja tylliä. Mittatilausmekot, muutostyöt ja upcycling.',
-      eyebrow: 'Iltapuvut 2026 · Tampere',
+        'Tutustu tamperelaisen muotisuunnittelija Thenun Mallisto 2026 -kokoelmaan: juhlamekot, puvut ja arkityylit. Mittatilausmekot, muutostyöt ja upcycling.',
+      eyebrow: 'Mallisto 2026 · Tampere',
       h1: 'Ajatonta eleganssia ja arjen tyyliä',
       intro:
-        'Astu maailmaan, jossa muoti kohtaa vaivattoman sulokkuuden. Näyttävistä juhlamekoista ja hienostuneista iltapuvuista tyylikkäisiin arkiasuihin – mallistomme on huolella suunniteltu kohottamaan vaatekaappiasi. Löydä istuvat siluetit, laadukas käsityö ja mallit, jotka antavat ainutlaatuisen kauneutesi loistaa jokaisessa tilaisuudessa.',
+        'Astu maailmaan, jossa muoti kohtaa vaivattoman sulokkuuden. Näyttävistä juhlamekoista ja hienostuneista juhla-asuista tyylikkäisiin arkiasuihin – mallistomme on huolella suunniteltu kohottamaan vaatekaappiasi. Löydä istuvat siluetit, laadukas käsityö ja mallit, jotka antavat ainutlaatuisen kauneutesi loistaa jokaisessa tilaisuudessa.',
     },
   },
   about: {
@@ -74,22 +74,22 @@ export const PAGES: Record<RouteKey, Record<Locale, PageCopy>> = {
   },
   portfolio: {
     en: {
-      title: 'Portfolio – Evening Gowns & Summer Dresses | Thenu, Tampere',
+      title: 'Portfolio – Gowns & Summer Dresses | Thenu, Tampere',
       description:
-        'Browse Thenu’s collections: evening gowns in organza, satin and tulle, and colourful summer dresses photographed among Finnish lupins. Designed in Tampere.',
+        'Browse Thenu’s collections: gowns in organza, satin and tulle, and colourful summer dresses photographed among Finnish lupins. Designed in Tampere.',
       eyebrow: 'Portfolio',
       h1: 'Designs by Thenu',
       intro:
-        'A selection of Thenu’s work, from dramatic evening gowns to colourful summer dresses. Every piece was designed in Tampere.',
+        'A selection of Thenu’s work, from dramatic gowns to colourful summer dresses. Every piece was designed in Tampere.',
     },
     fi: {
-      title: 'Portfolio – iltapuvut ja kesämekot | Thenu, Tampere',
+      title: 'Portfolio – juhlapuvut ja kesämekot | Thenu, Tampere',
       description:
-        'Selaa Thenun mallistoja: iltapukuja organzasta, satiinista ja tyllistä sekä värikkäitä kesämekkoja lupiinien keskellä. Suunniteltu Tampereella.',
+        'Selaa Thenun mallistoja: juhlapukuja organzasta, satiinista ja tyllistä sekä värikkäitä kesämekkoja lupiinien keskellä. Suunniteltu Tampereella.',
       eyebrow: 'Portfolio',
       h1: 'Thenun suunnittelemia vaatteita',
       intro:
-        'Valikoima Thenun töitä näyttävistä iltapuvuista värikkäisiin kesämekkoihin. Jokainen vaate on suunniteltu Tampereella.',
+        'Valikoima Thenun töitä näyttävistä juhlapuvuista värikkäisiin kesämekkoihin. Jokainen vaate on suunniteltu Tampereella.',
     },
   },
   contact: {

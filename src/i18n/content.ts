@@ -39,13 +39,13 @@ const en = {
       photo: 'thenu-design-mint-floral-puff-sleeve-dress',
       title: 'Custom dresses for women and kids',
       short:
-        'Designed and tailored to your measurements, from everyday dresses to evening gowns and outfits for special occasions.',
+        'Designed and tailored to your measurements, from everyday dresses to gowns and outfits for special occasions.',
       body: [
         'A custom dress starts with a conversation about you: the occasion, the colours and fabrics you love, and how you want to feel wearing it. Thenu sketches the design, takes your measurements and sews the dress to fit your body – not a standard size.',
-        'She designs for women and children alike, from party and occasion dresses to evening gowns, summer dresses and matching sets.',
+        'She designs for women and children alike, from party and occasion dresses to gowns, summer dresses and matching sets.',
       ],
       points: [
-        'Evening gowns and occasion wear',
+        'Gowns and occasion wear',
         'Summer dresses and two-piece sets',
         'Dresses for kids and special days',
         'Fittings along the way for a perfect fit',
@@ -116,8 +116,8 @@ const en = {
   ] satisfies Value[],
   collection: {
     eyebrow: 'New collection',
-    heading: 'Evening wear 2026',
-    text: 'Organza, satin and tulle in deep red, teal and cobalt. A collection of evening gowns where Sri Lankan colour meets clean Finnish lines.',
+    heading: 'The 2026 Collection',
+    text: 'Organza, satin and tulle in deep red, teal and cobalt. A collection where Sri Lankan colour meets clean Finnish lines.',
     cta: 'View the portfolio',
     viewCollection: 'View the collection',
     bookConsultation: 'Book a consultation',
@@ -125,12 +125,12 @@ const en = {
     allPhotos: 'See all photos',
     storyHeading: 'Colour, structure and movement',
     story: [
-      'Evening wear 2026 brings together the vibrant colour of Thenu’s Sri Lankan heritage and the clean, considered lines of Finnish design.',
+      'The 2026 Collection brings together the vibrant colour of Thenu’s Sri Lankan heritage and the clean, considered lines of Finnish design.',
       'Deep jewel tones – red, teal, plum and cobalt – meet sculpted bows, draped shoulders, layers of organza and flowing trains. Each gown is designed to move with the person wearing it, from the first entrance to the last dance.',
     ],
-    madeToMeasureHeading: 'Your own evening look',
+    madeToMeasureHeading: 'A look made just for you',
     madeToMeasure:
-      'Fell for a look? Thenu designs custom evening wear and occasion dresses made to your measurements – for parties, weddings, galas and every celebration in between.',
+      'Fell for a look? Thenu designs custom gowns and occasion dresses made to your measurements – for parties, weddings, galas and every celebration in between.',
     customDresses: 'About custom dresses',
     looks: [
       'thenu-design-pink-bronze-draped-gown-tulle-collar',
@@ -140,7 +140,7 @@ const en = {
       'thenu-design-teal-halter-gown-back-bow',
       'thenu-design-red-organza-gown-back-view',
       'thenu-design-mustard-floral-dress-in-motion',
-      'thenu-design-plum-halter-gown-evening-wear-trio',
+      'thenu-design-plum-halter-gown-trio',
     ],
   },
   valuesHeading: 'What makes a Thenu piece',
@@ -191,8 +191,8 @@ const en = {
   },
   portfolio: {
     collections: {
-      'evening-2026': {
-        heading: 'Evening wear 2026',
+      'collection-2026': {
+        heading: 'The 2026 Collection',
         text: 'Organza, satin and tulle in deep red, teal, plum and cobalt blue. Sculpted bows, draped shoulders and flowing trains, photographed in the studio.',
       },
       'summer-2025': {
@@ -262,13 +262,13 @@ const fi: Content = {
       id: 'mittatilausmekot',
       photo: 'thenu-design-mint-floral-puff-sleeve-dress',
       title: 'Mittatilausmekot naisille ja lapsille',
-      short: 'Suunniteltu ja ommeltu mittojesi mukaan – arkimekoista iltapukuihin ja juhla-asuihin.',
+      short: 'Suunniteltu ja ommeltu mittojesi mukaan – arkimekoista näyttäviin juhla-asuihin.',
       body: [
         'Mittatilausmekko alkaa keskustelusta: mihin tilaisuuteen vaate tulee, mistä väreistä ja materiaaleista pidät ja miltä haluat sen päällä tuntuvan. Thenu luonnostelee mallin, ottaa mittasi ja ompelee mekon istumaan juuri sinun vartalollesi – ei vakiokokoon.',
-        'Hän suunnittelee vaatteita sekä naisille että lapsille: juhla- ja iltapukuja, kesämekkoja ja yhteensopivia asukokonaisuuksia.',
+        'Hän suunnittelee vaatteita sekä naisille että lapsille: juhlamekkoja ja -pukuja, kesämekkoja ja yhteensopivia asukokonaisuuksia.',
       ],
       points: [
-        'Iltapuvut ja juhla-asut',
+        'Juhlapuvut ja erityistilaisuuksien asut',
         'Kesämekot ja kaksiosaiset asut',
         'Lasten mekot ja juhla-asut',
         'Sovitukset työn aikana täydellisen istuvuuden varmistamiseksi',
@@ -339,8 +339,8 @@ const fi: Content = {
   ],
   collection: {
     eyebrow: 'Uusi mallisto',
-    heading: 'Iltapuvut 2026',
-    text: 'Organzaa, satiinia ja tylliä syvänpunaisena, petroolina ja koboltinsinisenä. Iltapukumallisto, jossa srilankalainen väri kohtaa suomalaisen selkeän muotokielen.',
+    heading: 'Mallisto 2026',
+    text: 'Organzaa, satiinia ja tylliä syvänpunaisena, petroolina ja koboltinsinisenä. Mallisto, jossa srilankalainen väri kohtaa suomalaisen selkeän muotokielen.',
     cta: 'Katso portfolio',
     viewCollection: 'Katso mallisto',
     bookConsultation: 'Varaa konsultaatio',
@@ -348,12 +348,12 @@ const fi: Content = {
     allPhotos: 'Katso kaikki kuvat',
     storyHeading: 'Väriä, rakennetta ja liikettä',
     story: [
-      'Iltapuvut 2026 yhdistää Thenun srilankalaisen perinnön eloisat värit ja suomalaisen muotoilun selkeät, harkitut linjat.',
+      'Mallisto 2026 yhdistää Thenun srilankalaisen perinnön eloisat värit ja suomalaisen muotoilun selkeät, harkitut linjat.',
       'Syvät jalokivisävyt – punainen, petrooli, luumu ja koboltti – kohtaavat muotoillut rusetit, drapeeratut olkapäät, organzakerrokset ja laskeutuvat laahukset. Jokainen puku on suunniteltu liikkumaan kantajansa mukana ensimmäisestä sisääntulosta viimeiseen tanssiin.',
     ],
-    madeToMeasureHeading: 'Oma iltapukusi',
+    madeToMeasureHeading: 'Juuri sinulle tehty asu',
     madeToMeasure:
-      'Ihastuitko johonkin asuun? Thenu suunnittelee mittatilausiltapukuja ja juhlamekkoja juuri sinun mittojesi mukaan – juhliin, häihin, gaaloihin ja kaikkiin muihin tilaisuuksiin.',
+      'Ihastuitko johonkin asuun? Thenu suunnittelee mittatilauspukuja ja juhlamekkoja juuri sinun mittojesi mukaan – juhliin, häihin, gaaloihin ja kaikkiin muihin tilaisuuksiin.',
     customDresses: 'Lisää mittatilausmekoista',
     looks: [
       'thenu-design-pink-bronze-draped-gown-tulle-collar',
@@ -363,7 +363,7 @@ const fi: Content = {
       'thenu-design-teal-halter-gown-back-bow',
       'thenu-design-red-organza-gown-back-view',
       'thenu-design-mustard-floral-dress-in-motion',
-      'thenu-design-plum-halter-gown-evening-wear-trio',
+      'thenu-design-plum-halter-gown-trio',
     ],
   },
   valuesHeading: 'Mikä tekee Thenun vaatteesta ainutlaatuisen',
@@ -414,8 +414,8 @@ const fi: Content = {
   },
   portfolio: {
     collections: {
-      'evening-2026': {
-        heading: 'Iltapuvut 2026',
+      'collection-2026': {
+        heading: 'Mallisto 2026',
         text: 'Organzaa, satiinia ja tylliä syvänpunaisena, petroolina, luumuna ja koboltinsinisenä. Muotoiltuja rusetteja, drapeerattuja olkapäitä ja laskeutuvia laahuksia studiokuvissa.',
       },
       'summer-2025': {

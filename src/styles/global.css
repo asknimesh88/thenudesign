@@ -1,6 +1,6 @@
 /* Thenu – Tikki ja Tyyli
    Editorial fashion look: warm paper tones, a serif display face, deep wine accent
-   taken from the red organza gown, and dark "studio" sections for evening wear. */
+   taken from the red organza gown, and dark "studio" sections for the collection. */
 
 :root {
   --paper: #f7f3ee;
@@ -234,7 +234,7 @@ h3 { font-size: clamp(1.45rem, 2.2vw, 1.75rem); }
   .page-head { grid-template-columns: 1fr 1fr; gap: 5rem; }
 }
 
-/* ---------- Home: Evening wear showcase ---------- */
+/* ---------- Home: collection showcase ---------- */
 
 .showcase {
   background: var(--studio);
