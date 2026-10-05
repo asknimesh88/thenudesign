@@ -356,6 +356,11 @@ const DULKITH: Photographer = {
   facebookName: 'Avendale Visuals',
 };
 
+/** Make-up artist credit per collection (shown under the photographer credit). */
+export const MAKEUP: Partial<Record<Collection, { name: string }>> = {
+  'collection-2026': { name: 'Shanali Subasinghe' },
+};
+
 export const CREDITS: Partial<Record<Collection, Photographer>> = {
   'collection-2026': DULKITH,
   'summer-2025': DULKITH,

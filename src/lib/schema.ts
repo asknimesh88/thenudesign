@@ -174,6 +174,7 @@ export function gallerySchema(opts: {
   description: string;
   images: { url: string; caption: string; width: number; height: number }[];
   photographer?: { name: string; sameAs: string[] };
+  makeupArtist?: string;
 }) {
   const photographer = opts.photographer && {
     '@type': 'Person',
@@ -189,7 +190,12 @@ export function gallerySchema(opts: {
     description: opts.description,
     // Thenu designed the garments shown; the photos themselves are credited below.
     about: { '@id': ids.business },
-    ...(photographer && { contributor: photographer }),
+    ...((photographer || opts.makeupArtist) && {
+      contributor: [
+        ...(photographer ? [photographer] : []),
+        ...(opts.makeupArtist ? [{ '@type': 'Person', name: opts.makeupArtist, jobTitle: 'Makeup Artist' }] : []),
+      ],
+    }),
     image: opts.images.map((img) => ({
       '@type': 'ImageObject',
       contentUrl: abs(img.url),

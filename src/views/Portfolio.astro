@@ -7,7 +7,7 @@ import { ROUTES } from '../i18n/routes';
 import { PAGES } from '../i18n/pages';
 import { CONTENT } from '../i18n/content';
 import { UI } from '../i18n/ui';
-import { collection, large, CREDITS, type Collection } from '../data/photos';
+import { collection, large, CREDITS, MAKEUP, type Collection } from '../data/photos';
 import { abs, gallerySchema } from '../lib/schema';
 
 interface Props {
@@ -43,6 +43,7 @@ const schema = await Promise.all(
         name: CREDITS[id]!.name,
         sameAs: [CREDITS[id]!.instagram, CREDITS[id]!.facebook].filter((u): u is string => !!u),
       },
+      makeupArtist: MAKEUP[id]?.name,
     });
   }),
 );
@@ -73,6 +74,14 @@ const schema = await Promise.all(
                       Facebook {CREDITS[id]!.facebookName}
                     </a>
                   )}
+                </p>
+              )
+            }
+            {
+              MAKEUP[id] && (
+                <p class="credit">
+                  <span class="credit-label">{ui.makeup}</span>
+                  <span class="credit-name">{MAKEUP[id]!.name}</span>
                 </p>
               )
             }

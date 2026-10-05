@@ -545,3 +545,4 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 3rem 0; }
 .credit-name { font-family: var(--serif); font-size: 1.35rem; }
 .credit a { text-decoration: underline; text-decoration-color: #ffffff55; }
 .credit a:hover { text-decoration-color: currentColor; }
+.credit + .credit { margin-top: 0.5rem; }
